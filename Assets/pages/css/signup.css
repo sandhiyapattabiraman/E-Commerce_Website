@@ -1,0 +1,140 @@
+/* sign up */
+
+*{
+    margin: 0px;
+    padding: 0px;
+
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 200px;
+    background-color: #f2f2f2;
+}
+
+.sign-up{
+    display: flex;
+    flex-direction: column;
+    border: solid 1px rgb(137, 134, 134);
+    box-shadow: 0px 4px 12px rgb(16, 2, 2);
+    height: 500px;
+    width: 300px;
+}
+
+.sign-up{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.sign-up input {
+    width: 230px;
+    height: 40px;
+    border-radius: 30px;
+    border: none;
+    color: black;
+    background-color: rgb(244, 209, 238);
+    display: flex;
+    text-align: center;
+}
+
+.sign-up button{
+    width: 230px;
+    height: 40px;
+    border-radius: 30px;
+    border: none;
+    background-color: rgb(179, 7, 179);
+    color: white;
+    cursor: pointer;
+    
+}
+.sign-up a{
+    color: rgb(179, 7, 179);
+    text-decoration: none;
+}
+
+/* signup.css */
+
+/* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #f2f2f2;
+}
+
+.form {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+}
+
+.sign-up h1 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.sign-up p {
+    font-size: 0.9rem;
+    color: #666;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.sign-up p:first-of-type {
+    margin-top: 0.5rem;
+    color: #333;
+}
+
+.sign-up input {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    margin: 1rem 0;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+    color: #333;
+}
+
+.sign-up input::placeholder {
+    color: #aaa;
+}
+
+.sign-up button {
+    width: 100%;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 4px;
+    background-color: #4CAF50;
+    color: #ffffff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.sign-up button:hover {
+    background-color: #45a049;
+}
+
+.sign-up p:last-of-type {
+    color: #007BFF;
+    cursor: pointer;
+}
+
+.sign-up p:last-of-type:hover {
+    text-decoration: underline;
+} */

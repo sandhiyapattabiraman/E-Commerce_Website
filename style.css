@@ -1,0 +1,152 @@
+body{
+    padding: 0px;
+    margin: 0px;
+}
+
+#header{
+    position: fixed;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: pink;
+    padding: 20px;
+}
+
+
+#header a{
+    text-decoration: none;
+    color: black;
+}
+
+#slide_image{
+    height: 800px;
+    width: 100%;   
+}
+
+.search{
+    border-radius: 30px;
+    padding: 10px;
+    border: solid black 1px;
+    width: 200px;
+}
+
+.atoc-img{
+    height: 30px;
+
+}
+
+.profile-image{
+    height: 30px;
+}
+
+.wishlist-image{
+    height: 35px;
+}
+
+.medimg{
+    height: 250px;
+    width: 250px;
+    border-radius: 100%;
+}
+
+
+
+.product1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 200px;
+    background-color: pink;
+    border-radius: 30px;
+}
+
+.product{
+    display: flex;
+    justify-content: center;
+    margin-top: 10%;
+}
+
+.medproduct{
+    display: flex;
+    justify-content: space-around;
+    padding: 50px;
+}
+
+.med{
+    height: 50px;
+    width: 250px;
+    background-color: pink;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10%;
+}
+
+.allproducts{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10%;
+
+}
+
+.webproduct{
+    height: 50%;
+    width: 15%;
+    border: solid 1px black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    padding-top: 0px;
+}
+
+.pro-img{
+    height: 200px;
+    width: 200px;
+    border-radius: 20px;
+}
+
+.buy{
+    background-color: pink;
+    border-radius: 30px;
+    border: solid 1px pink;
+    width: 100px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+}
+
+.atoc{
+    background-color: pink;
+    border-radius: 30px;
+    width: 150px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+}
+
+.webproduct{
+    display: flex;
+    align-items: center;
+}
+
+.wishlist-button{
+    height: 40px;
+    margin-left: 200px;
+}
+
+
+.rating_star{
+    height: 60px;
+}
+
+
+
