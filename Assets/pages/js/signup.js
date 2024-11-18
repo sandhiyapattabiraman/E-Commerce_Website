@@ -47,13 +47,13 @@ form.addEventListener("submit", function(event) {
   confirmPasswordError.textContent = "";
   let validForm = true;
   // Validate username
-  if (username.length < 3) {
+  if (username.length < 3 ) {
       usernameError.textContent = "Username must be at least 3 characters.";
       validForm = false;
   }
   // Validate email
-  const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
-  if (!emailPattern.test(email)) {
+  const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  if (!emailPattern.test(email) || email.includes('gmail.com.gmail.com') || email.startsWith('.') || email.endsWith('.') || email.includes('gmail.comgmail.com') || email.includes('@@') || email.includes('.gmail.com')) {
       emailError.textContent = "Please enter a valid email address.";
       validForm = false;
   }
@@ -109,7 +109,7 @@ form.addEventListener("input", function(event) {
   if (username.length >= 3) {
       usernameError.textContent = "";
   }
-  const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+  const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   if (emailPattern.test(email)) {
       emailError.textContent = "";
   }
