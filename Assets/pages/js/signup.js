@@ -47,11 +47,11 @@ form.addEventListener("submit", function(event) {
   confirmPasswordError.textContent = "";
   let validForm = true;
   // Validate username
-  if (/^[0-9]+$/.test(username)) {
+  if (/^[0-9]+$/.test(username) || username.includes(" ")) {
     usernameError.textContent = "Invalid username";
     validForm = false;
 }
-  if (username.length < 3 ) {
+  if (username.length < 3 || username.length > 254) {
       usernameError.textContent = "Username must be at least 3 characters.";
       validForm = false;
   }
@@ -62,7 +62,13 @@ form.addEventListener("submit", function(event) {
       validForm = false;
   }
   // Validate password
-  if (password.length < 8) {
+
+  if (password.includes(" ") ) {
+    passwordError.textContent = "Invalid Password";
+    validForm = false;
+}
+
+  if (password.length < 8 ) {
       passwordError.textContent = "Password must be at least 8 characters.";
       validForm = false;
   }
