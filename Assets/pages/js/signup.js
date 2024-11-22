@@ -47,14 +47,18 @@ form.addEventListener("submit", function(event) {
   confirmPasswordError.textContent = "";
   let validForm = true;
   // Validate username
-  if (/^[0-9]+$/.test(username) || username.includes(" ")) {
+  if (/^[0-9]+$/.test(username) || /\s/.test(username) || !/^[a-zA-Z0-9_]+$/.test(username)) {
     usernameError.textContent = "Invalid username";
     validForm = false;
 }
-  if (username.length < 3 || username.length > 254) {
+  if (username.length < 3 ) {
       usernameError.textContent = "Username must be at least 3 characters.";
       validForm = false;
   }
+  if ( username.length > 254) {
+    usernameError.textContent = "Username must not exceed 254 characters.";
+    validForm = false;
+}
   // Validate email
   const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   if (!emailPattern.test(email) || email.includes('gmail.com.gmail.com') || email.startsWith('.') || email.endsWith('.') || email.includes('gmail.comgmail.com') || email.includes('@@') || email.includes('.gmail.com') || !email.includes('@gmail.com')) {
