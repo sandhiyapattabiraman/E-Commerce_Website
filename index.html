@@ -13,11 +13,11 @@
             <h3>PET WORLD</h3>
         </div>
         <a href="#home">HOME</a>
-        <a href="#categories">CATEGORIES</a>
-        <a href="CONTACT">CONTACT</a>
+        <a href="#category">CATEGORIES</a>
+        <a href="#contact">CONTACT</a>
         <a href="./Assets/pages/html/login.html">LOGIN</a> 
         <div>
-            <input type="text" placeholder="Search" class="search">
+            <input type="text" placeholder="Search" class="search" id="searchBar">
         </div>
         
         <div>
@@ -34,8 +34,8 @@
     
     <main>
         <!-- Slide show -->
-
-        <div class="slideshow-container" id="home">
+        <div id="home"></div>
+        <div class="slideshow-container">
             <div class="slide">
               <img src="./Assets/Images/home_cat_img.jpg" alt="Slide 1">
             </div>
@@ -51,36 +51,17 @@
           </div>
 
           <!-- categories -->
+
         <section>
-            <div class="categories" id="categories"></div>
-            <div class="products">
-            <div class="product1">Pet Medicines</div>
-            </div>
+            <div class="categories" id="category"></div>
             
-            <div id="medproduct" class="pro_container"></div>
+            <h1>Categories</h1>
+            
+            <div id="categories" class="pro_container"></div>
 
         </section>
-
         <section>
-            <div class="products">
-                <div class="product1">Pet Food</div>
-            </div>
-
-            <div id="foodproduct" class="pro_container"></div>
-                
-        </section>
-
-        <section>
-            <div class="products">
-                <div class="product1">Pet Accessories</div>
-            </div>
-
-            <div id="Accessoriesproduct" class="pro_container"></div>
-                
-        </section>
-
-        <section>
-
+        
             <!-- Items -->
             <h1>Products</h1>
             <div id="items" class="product-container"></div>
@@ -89,6 +70,47 @@
 
         <!-- contact -->
          
+        <section class="contact-section" id="contact">
+            <div class="location-box">
+                    <h2>Location</h2>
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.8354345086167!2d144.9537363153162!3d-37.81627997975154!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0x5045675218ce7e0!2sMelbourne%20VIC%2C%20Australia!5e0!3m2!1sen!2sin!4v1638167611189!5m2!1sen!2sin" 
+                        width="100%" 
+                        height="300" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy">
+                    </iframe>
+                
+            </div>
+
+            <div class="contact-info">
+                <h2>Contact Us</h2>
+                <div class="info-item">
+                    <img src="./Assets/Images/email-icon.webp" alt="Email Icon" class="info-icon">
+                    <p>example@mail.com</p>
+                </div>
+                <div class="info-item">
+                    <img src="./Assets/Images/Phone_icon.png" alt="Phone Icon" class="info-icon">
+                    <p>+123 456 7890</p>
+                </div>
+                <div class="info-item">
+                    <img src="./Assets/Images/clock_img.png" alt="Clock Icon" class="info-icon">
+                    <p>Mon - Fri: 9 AM - 6 PM</p>
+                </div>
+            </div>
+
+            <!-- <div class="form-section">
+                <h2>Get in Touch</h2>
+                <form action="#" method="post">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="tel" name="mobile" placeholder="Mobile Number" required>
+                    <input type="email" name="email" placeholder="Email ID" required>
+                    <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                    <button type="submit">Send</button>
+                </form>
+            </div> -->
+        </section>
         
     </main>
     <script src="./script.js"></script>

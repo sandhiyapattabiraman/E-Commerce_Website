@@ -1,0 +1,52 @@
+{
+    "products": [
+      {
+        "image": "../../../Assets/Images/my-wish-list.png",
+        "image1": "../../../Assets/Images/web2_img.jpg",
+        "image2": "../../../Assets/Images/star_rating_img.webp",
+        "price": "$100"
+      },
+      {
+        "image": "../../../Assets/Images/my-wish-list.png",
+        "image1": "../../../Assets/Images/web2_img.jpg",
+        "image2": "../../../Assets/Images/star_rating_img.webp",
+        "price": "$200"
+      },
+      {
+        "image": "../../../Assets/Images/my-wish-list.png",
+        "image1": "../../../Assets/Images/web2_img.jpg",
+        "image2": "../../../Assets/Images/star_rating_img.webp",
+        "price": "$150"
+      },
+      {
+        "image": "../../../Assets/Images/my-wish-list.png",
+        "image1": "../../../Assets/Images/web2_img.jpg",
+        "image2": "../../../Assets/Images/star_rating_img.webp",
+        "price": "$155"
+      },
+      {
+        "image": "../../../Assets/Images/my-wish-list.png",
+        "image1": "../../../Assets/Images/web2_img.jpg",
+        "image2": "../../../Assets/Images/star_rating_img.webp",
+        "price": "$250"
+      },
+      {
+        "image": "../../../Assets/Images/my-wish-list.png",
+        "image1": "../../../Assets/Images/web2_img.jpg",
+        "image2": "../../../Assets/Images/star_rating_img.webp",
+        "price": "$249"
+      },
+      {
+        "image": "../../../Assets/Images/my-wish-list.png",
+        "image1": "../../../Assets/Images/web2_img.jpg",
+        "image2": "../../../Assets/Images/star_rating_img.webp",
+        "price": "$300"
+      },
+      {
+        "image": "../../../Assets/Images/my-wish-list.png",
+        "image1": "../../../Assets/Images/web2_img.jpg",
+        "image2": "../../../Assets/Images/star_rating_img.webp",
+        "price": "$270"
+      }
+    ]
+  }
