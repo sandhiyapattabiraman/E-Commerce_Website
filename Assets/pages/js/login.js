@@ -56,6 +56,11 @@ form.addEventListener("submit", function(event) {
         validForm = false;
     }
 
+    if (password.includes(" ") ) {
+        passwordError.textContent = "Invalid Password";
+        validForm = false;
+    }
+    
     if (!validForm) return;  // If validation fails, don't proceed further
 
     // Change button text and disable it while submitting
