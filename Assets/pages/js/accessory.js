@@ -8,7 +8,8 @@ fetch('../../../Assets/pages/json/accessory.json')
       productDiv.classList.add("product");
       productDiv.innerHTML = `
         <img src="${product.image}" alt="wishlist_img" class="wishlist-img">
-        <img src="${product.image1}" alt="stand_mixer_img" class="product-image">
+        <img src="${product.image1}" alt="Accessory image" class="product-image">
+        <p> ${product.name}</p>
         <img src="${product.image2}" alt="rating" class="star_rating">
         <p>Price: ${product.price}</p>
         <button type="button" class="Button">Add to Cart</button>

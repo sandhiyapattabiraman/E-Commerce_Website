@@ -1,52 +1,164 @@
 {
-    "products": [
-      {
-        "image": "../../../Assets/Images/my-wish-list.png",
-        "image1": "../../../Assets/Images/web2_img.jpg",
-        "image2": "../../../Assets/Images/star_rating_img.webp",
-        "price": "$100"
-      },
-      {
-        "image": "../../../Assets/Images/my-wish-list.png",
-        "image1": "../../../Assets/Images/web2_img.jpg",
-        "image2": "../../../Assets/Images/star_rating_img.webp",
-        "price": "$200"
-      },
-      {
-        "image": "../../../Assets/Images/my-wish-list.png",
-        "image1": "../../../Assets/Images/web2_img.jpg",
-        "image2": "../../../Assets/Images/star_rating_img.webp",
-        "price": "$150"
-      },
-      {
-        "image": "../../../Assets/Images/my-wish-list.png",
-        "image1": "../../../Assets/Images/web2_img.jpg",
-        "image2": "../../../Assets/Images/star_rating_img.webp",
-        "price": "$155"
-      },
-      {
-        "image": "../../../Assets/Images/my-wish-list.png",
-        "image1": "../../../Assets/Images/web2_img.jpg",
-        "image2": "../../../Assets/Images/star_rating_img.webp",
-        "price": "$250"
-      },
-      {
-        "image": "../../../Assets/Images/my-wish-list.png",
-        "image1": "../../../Assets/Images/web2_img.jpg",
-        "image2": "../../../Assets/Images/star_rating_img.webp",
-        "price": "$249"
-      },
-      {
-        "image": "../../../Assets/Images/my-wish-list.png",
-        "image1": "../../../Assets/Images/web2_img.jpg",
-        "image2": "../../../Assets/Images/star_rating_img.webp",
-        "price": "$300"
-      },
-      {
-        "image": "../../../Assets/Images/my-wish-list.png",
-        "image1": "../../../Assets/Images/web2_img.jpg",
-        "image2": "../../../Assets/Images/star_rating_img.webp",
-        "price": "$270"
-      }
-    ]
-  }
+  "products": [
+    {
+      "image": "../../../Assets/Images/my-wish-list.png",
+      "image1": "../../../Assets/Images/frontline_med_img.jpg",
+      "name": "Frontline Plus",
+      "use": "Flea and tick prevention for dogs and cats",
+      "image2": "../../../Assets/Images/star_rating_img.webp",
+      "price": "$100"
+    },
+    {
+      "image": "../../../Assets/Images/my-wish-list.png",
+      "image1": "../../../Assets/Images/revolution_med_img.webp",
+      "name": "Revolution",
+      "use": "Broad-spectrum parasite prevention, including fleas, ticks, ear mites, and heartworms",
+      "image2": "../../../Assets/Images/star_rating_img.webp",
+      "price": "$200"
+    },
+    {
+      "image": "../../../Assets/Images/my-wish-list.png",
+      "image1": "../../../Assets/Images/Advantage2_med_img.webp",
+      "name": "Advantage II",
+      "use": "Flea control for dogs and cats, treats and prevents lice",
+      "image2": "../../../Assets/Images/star_rating_img.webp",
+      "price": "$150"
+    },
+    {
+      "image": "../../../Assets/Images/my-wish-list.png",
+      "image1": "../../../Assets/Images/baytril_med_img.png",
+      "name": "Baytril (Enrofloxacin)",
+      "use": "Treats bacterial infections in dogs and cats.",
+      "image2": "../../../Assets/Images/star_rating_img.webp",
+      "price": "$155"
+    },
+    {
+      "image": "../../../Assets/Images/my-wish-list.png",
+      "image1": "../../../Assets/Images/trazodone_med_img.jpg",
+      "name": "Trazodone",
+      "use": "Manages anxiety and stress-related behaviors in pets.",
+      "image2": "../../../Assets/Images/star_rating_img.webp",
+      "price": "$250"
+    },
+    {
+      "image": "../../../Assets/Images/my-wish-list.png",
+      "image1": "../../../Assets/Images/heartgard_med_img.avif",
+      "name": "Heartgard Plus",
+      "use": "Heartworm prevention and treats roundworms and hookworms in dogs",
+      "image2": "../../../Assets/Images/star_rating_img.webp",
+      "price": "$249"
+    },
+    {
+      "image": "../../../Assets/Images/my-wish-list.png",
+      "image1": "../../../Assets/Images/comfortis_med_img.webp",
+      "name": "Comfortis",
+      "use": "Flea treatment and prevention for dogs and cats",
+      "image2": "../../../Assets/Images/star_rating_img.webp",
+      "price": "$300"
+    },
+    {
+      "image": "../../../Assets/Images/my-wish-list.png",
+      "image1": "../../../Assets/Images/clavamox_med_img.jpg",
+      "name": "Clavamox",
+      "use": "  Antibiotic for bacterial infections such as respiratory, urinary, and skin infections.",
+      "image2": "../../../Assets/Images/star_rating_img.webp",
+      "price": "$270"
+    },
+    {
+      "image": "../../../Assets/Images/my-wish-list.png",
+      "image1": "../../../Assets/Images/capstar_med_img.jpg",
+      "name": "Capstar",
+      "use": "Flea control for dogs and cats, kills adult fleas within 30 minutes",
+      "image2": "../../../Assets/Images/star_rating_img.webp",
+      "price": "$100"
+    },
+    {
+      "image": "../../../Assets/Images/my-wish-list.png",
+      "image1": "../../../Assets/Images/petarmor_med_img.webp",
+      "name": "PetArmor",
+      "use": "Flea and tick prevention for dogs and cats",
+      "image2": "../../../Assets/Images/star_rating_img.webp",
+      "price": "$200"
+    },
+    {
+      "image": "../../../Assets/Images/my-wish-list.png",
+      "image1": "../../../Assets/Images/otomox_med_img.webp",
+      "name": "Otomax",
+      "use": "Ear medication for bacterial and fungal infections in dogs.",
+      "image2": "../../../Assets/Images/star_rating_img.webp",
+      "price": "$150"
+    },
+    {
+      "image": "../../../Assets/Images/my-wish-list.png",
+      "image1": "../../../Assets/Images/sentinel_med_img.webp",
+      "name": "Sentinel",
+      "use": "Heartworm prevention, flea control, and treatment for roundworms, hookworms, and whipworms",
+      "image2": "../../../Assets/Images/star_rating_img.webp",
+      "price": "$155"
+    },
+    {
+      "image": "../../../Assets/Images/my-wish-list.png",
+      "image1": "../../../Assets/Images/cerenia_med_img.jpg",
+      "name": "Cerenia",
+      "use": "Anti-nausea medication for dogs, treats vomiting caused by motion sickness or other conditions",
+      "image2": "../../../Assets/Images/star_rating_img.webp",
+      "price": "$250"
+    },
+    {
+      "image": "../../../Assets/Images/my-wish-list.png",
+      "image1": "../../../Assets/Images/metacam_med_img.jpg",
+      "name": "Metacam",
+      "use": "NSAID for pain relief and inflammation in dogs and cats",
+      "image2": "../../../Assets/Images/star_rating_img.webp",
+      "price": "$249"
+    },
+    {
+      "image": "../../../Assets/Images/my-wish-list.png",
+      "image1": "../../../Assets/Images/adequan_med_img.webp",
+      "name": "Adequan",
+      "use": "Joint health treatment for dogs and horses, used for arthritis and inflammation",
+      "image2": "../../../Assets/Images/star_rating_img.webp",
+      "price": "$300"
+    },
+    {
+      "image": "../../../Assets/Images/my-wish-list.png",
+      "image1": "../../../Assets/Images/h_spray_med_img.jpg",
+      "name": "Hydrocortisone Spray",
+      "use": "Relieves mild skin irritations and itching in pets.",
+      "image2": "../../../Assets/Images/star_rating_img.webp",
+      "price": "$270"
+    },
+    {
+      "image": "../../../Assets/Images/my-wish-list.png",
+      "image1": "../../../Assets/Images/panolog_med_img.jpg",
+      "name": "Panolog Ointment",
+      "use": "Topical antibiotic for infections, inflammation, and wounds in pets",
+      "image2": "../../../Assets/Images/star_rating_img.webp",
+      "price": "$250"
+    },
+    {
+      "image": "../../../Assets/Images/my-wish-list.png",
+      "image1": "../../../Assets/Images/panacur_med_img.webp",
+      "name": "Panacur C",
+      "use": "De-worming medication for dogs and cats, effective against roundworms, hookworms, and tapeworms",
+      "image2": "../../../Assets/Images/star_rating_img.webp",
+      "price": "$249"
+    },
+    {
+      "image": "../../../Assets/Images/my-wish-list.png",
+      "image1": "../../../Assets/Images/cosequin_med_img.jpg",
+      "name": "Cosequin",
+      "use": "Joint health supplement for arthritis and cartilage repair",
+      "image2": "../../../Assets/Images/star_rating_img.webp",
+      "price": "$300"
+    },
+    {
+      "image": "../../../Assets/Images/my-wish-list.png",
+      "image1": "../../../Assets/Images/deramaxx_med_img.avif",
+      "name": "Deramaxx",
+      "use": "NSAID for pain and inflammation relief in dogs, typically for post-surgery or arthritis pain",
+      "image2": "../../../Assets/Images/star_rating_img.webp",
+      "price": "$270"
+    }
+  ]
+}
