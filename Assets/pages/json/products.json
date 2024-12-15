@@ -1,0 +1,60 @@
+{
+  "products": [
+    {
+      "image": "../../../Assets/Images/my-wish-list.png",
+      "image1": "../../../Assets/Images/web2_img.jpg",
+      "name": "Product 1",
+      "image2": "../../../Assets/Images/star_rating_img.webp",
+      "price": "100"
+    },
+    {
+      "image": "../../../Assets/Images/my-wish-list.png",
+      "image1": "../../../Assets/Images/web2_img.jpg",
+      "name": "Product 2",
+      "image2": "../../../Assets/Images/star_rating_img.webp",
+      "price": "200"
+    },
+    {
+      "image": "../../../Assets/Images/my-wish-list.png",
+      "image1": "../../../Assets/Images/pet_accessory_img.webp",
+      "name": "Product 3",
+      "image2": "../../../Assets/Images/star_rating_img.webp",
+      "price": "150"
+    },
+    {
+      "image": "../../../Assets/Images/my-wish-list.png",
+      "image1": "../../../Assets/Images/web2_img.jpg",
+      "name": "Product 4",
+      "image2": "../../../Assets/Images/star_rating_img.webp",
+      "price": "155"
+    },
+    {
+      "image": "../../../Assets/Images/my-wish-list.png",
+      "image1": "./Assets/Images/web2_img.jpg",
+      "name": "Product 5",
+      "image2": "../../../Assets/Images/star_rating_img.webp",
+      "price": "250"
+    },
+    {
+      "image": "../../../Assets/Images/my-wish-list.png",
+      "image1": "../../../Assets/Images/web2_img.jpg",
+      "name": "Product 6",
+      "image2": "../../../Assets/Images/star_rating_img.webp",
+      "price": "249"
+    },
+    {
+      "image": "../../../Assets/Images/my-wish-list.png",
+      "image1": "../../../Assets/Images/web2_img.jpg",
+      "name": "Product 7",
+      "image2": "../../../Assets/Images/star_rating_img.webp",
+      "price": "300"
+    },
+    {
+      "image": "../../../Assets/Images/my-wish-list.png",
+      "image1": "../../../Assets/Images/web2_img.jpg",
+      "name": "Product 8",
+      "image2": "../../../Assets/Images/star_rating_img.webp",
+      "price": "270"
+    }
+  ]
+}

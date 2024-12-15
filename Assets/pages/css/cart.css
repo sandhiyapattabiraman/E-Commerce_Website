@@ -52,3 +52,135 @@ h1 {
     color: #333;
     font-size: 35px;
 }
+
+
+/* Container for cart list */
+#cart-list {
+  margin: 20px;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Cart item style */
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  margin-bottom: 15px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+  transition: background-color 0.3s;
+}
+
+.cart-item:hover {
+  background-color: #f1f1f1;
+}
+
+/* Image styling */
+.cart-item img {
+  max-width: 250px;
+  max-height: 250px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Item name and price */
+.cart-item p {
+  margin: 0;
+  font-size: 16px;
+}
+
+.cart-item p strong {
+  font-weight: bold;
+}
+
+/* Remove button */
+.cart-item button {
+  background-color: #e74c3c;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.cart-item button:hover {
+  background-color: #c0392b;
+}
+
+/* Empty cart message */
+#cart-list p {
+  text-align: center;
+  font-size: 18px;
+  color: #888;
+}
+
+/* Cart count */
+.cart-count {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-top: 20px;
+}
+
+
+  
+  /* Remove button */
+  .remove {
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .remove:hover {
+    background-color: darkred;
+  }
+  
+  #total-container {
+    text-align: center;
+    margin-top: 30px;
+}
+
+#total-container p {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.place-order-btn {
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.place-order-btn:hover {
+    background-color: #27ae60;
+}
+
+
+
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .cart-item {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .cart-item p {
+      margin: 10px 0;
+    }
+  }

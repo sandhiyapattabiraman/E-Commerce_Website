@@ -27,6 +27,7 @@
         </div>
         <div>
             <img src="../../../Assets/Images/Add-to-cart-image.webp" class="atoc-img">
+            <span class="cart-count">0</span>
         </div>
         <div>
             <a href="../../../Assets/pages/html/account.html">
@@ -41,7 +42,15 @@
     <div class="container">
         <h1>Cart</h1>
     </div>
+    <div id="cart-list">
+        
+    </div>
+    <div id="total-container">
+        <p>Total Price: $<span id="total-price">0.00</span></p>
+        <button id="place-order" class="place-order-btn">Place Order</button>
+    </div>
 </section>
+<script type="module" src="../../../Assets/pages/js/cart.js"></script>
 </main>
 </body>
 </html>

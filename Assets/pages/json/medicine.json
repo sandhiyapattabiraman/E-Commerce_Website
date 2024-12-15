@@ -6,7 +6,7 @@
       "name": "Frontline Plus",
       "use": "Flea and tick prevention for dogs and cats",
       "image2": "../../../Assets/Images/star_rating_img.webp",
-      "price": "$100"
+      "price": "100"
     },
     {
       "image": "../../../Assets/Images/my-wish-list.png",
@@ -14,7 +14,7 @@
       "name": "Revolution",
       "use": "Broad-spectrum parasite prevention, including fleas, ticks, ear mites, and heartworms",
       "image2": "../../../Assets/Images/star_rating_img.webp",
-      "price": "$200"
+      "price": "200"
     },
     {
       "image": "../../../Assets/Images/my-wish-list.png",
@@ -22,7 +22,7 @@
       "name": "Advantage II",
       "use": "Flea control for dogs and cats, treats and prevents lice",
       "image2": "../../../Assets/Images/star_rating_img.webp",
-      "price": "$150"
+      "price": "150"
     },
     {
       "image": "../../../Assets/Images/my-wish-list.png",
@@ -30,7 +30,7 @@
       "name": "Baytril (Enrofloxacin)",
       "use": "Treats bacterial infections in dogs and cats.",
       "image2": "../../../Assets/Images/star_rating_img.webp",
-      "price": "$155"
+      "price": "155"
     },
     {
       "image": "../../../Assets/Images/my-wish-list.png",
@@ -38,7 +38,7 @@
       "name": "Trazodone",
       "use": "Manages anxiety and stress-related behaviors in pets.",
       "image2": "../../../Assets/Images/star_rating_img.webp",
-      "price": "$250"
+      "price": "250"
     },
     {
       "image": "../../../Assets/Images/my-wish-list.png",
@@ -46,7 +46,7 @@
       "name": "Heartgard Plus",
       "use": "Heartworm prevention and treats roundworms and hookworms in dogs",
       "image2": "../../../Assets/Images/star_rating_img.webp",
-      "price": "$249"
+      "price": "249"
     },
     {
       "image": "../../../Assets/Images/my-wish-list.png",
@@ -54,7 +54,7 @@
       "name": "Comfortis",
       "use": "Flea treatment and prevention for dogs and cats",
       "image2": "../../../Assets/Images/star_rating_img.webp",
-      "price": "$300"
+      "price": "300"
     },
     {
       "image": "../../../Assets/Images/my-wish-list.png",
@@ -62,7 +62,7 @@
       "name": "Clavamox",
       "use": "  Antibiotic for bacterial infections such as respiratory, urinary, and skin infections.",
       "image2": "../../../Assets/Images/star_rating_img.webp",
-      "price": "$270"
+      "price": "270"
     },
     {
       "image": "../../../Assets/Images/my-wish-list.png",
@@ -70,7 +70,7 @@
       "name": "Capstar",
       "use": "Flea control for dogs and cats, kills adult fleas within 30 minutes",
       "image2": "../../../Assets/Images/star_rating_img.webp",
-      "price": "$100"
+      "price": "100"
     },
     {
       "image": "../../../Assets/Images/my-wish-list.png",
@@ -78,7 +78,7 @@
       "name": "PetArmor",
       "use": "Flea and tick prevention for dogs and cats",
       "image2": "../../../Assets/Images/star_rating_img.webp",
-      "price": "$200"
+      "price": "200"
     },
     {
       "image": "../../../Assets/Images/my-wish-list.png",
@@ -86,7 +86,7 @@
       "name": "Otomax",
       "use": "Ear medication for bacterial and fungal infections in dogs.",
       "image2": "../../../Assets/Images/star_rating_img.webp",
-      "price": "$150"
+      "price": "150"
     },
     {
       "image": "../../../Assets/Images/my-wish-list.png",
@@ -94,7 +94,7 @@
       "name": "Sentinel",
       "use": "Heartworm prevention, flea control, and treatment for roundworms, hookworms, and whipworms",
       "image2": "../../../Assets/Images/star_rating_img.webp",
-      "price": "$155"
+      "price": "155"
     },
     {
       "image": "../../../Assets/Images/my-wish-list.png",
@@ -102,7 +102,7 @@
       "name": "Cerenia",
       "use": "Anti-nausea medication for dogs, treats vomiting caused by motion sickness or other conditions",
       "image2": "../../../Assets/Images/star_rating_img.webp",
-      "price": "$250"
+      "price": "250"
     },
     {
       "image": "../../../Assets/Images/my-wish-list.png",
@@ -110,7 +110,7 @@
       "name": "Metacam",
       "use": "NSAID for pain relief and inflammation in dogs and cats",
       "image2": "../../../Assets/Images/star_rating_img.webp",
-      "price": "$249"
+      "price": "249"
     },
     {
       "image": "../../../Assets/Images/my-wish-list.png",
@@ -118,7 +118,7 @@
       "name": "Adequan",
       "use": "Joint health treatment for dogs and horses, used for arthritis and inflammation",
       "image2": "../../../Assets/Images/star_rating_img.webp",
-      "price": "$300"
+      "price": "300"
     },
     {
       "image": "../../../Assets/Images/my-wish-list.png",
@@ -126,7 +126,7 @@
       "name": "Hydrocortisone Spray",
       "use": "Relieves mild skin irritations and itching in pets.",
       "image2": "../../../Assets/Images/star_rating_img.webp",
-      "price": "$270"
+      "price": "270"
     },
     {
       "image": "../../../Assets/Images/my-wish-list.png",
@@ -134,7 +134,7 @@
       "name": "Panolog Ointment",
       "use": "Topical antibiotic for infections, inflammation, and wounds in pets",
       "image2": "../../../Assets/Images/star_rating_img.webp",
-      "price": "$250"
+      "price": "250"
     },
     {
       "image": "../../../Assets/Images/my-wish-list.png",
@@ -142,7 +142,7 @@
       "name": "Panacur C",
       "use": "De-worming medication for dogs and cats, effective against roundworms, hookworms, and tapeworms",
       "image2": "../../../Assets/Images/star_rating_img.webp",
-      "price": "$249"
+      "price": "249"
     },
     {
       "image": "../../../Assets/Images/my-wish-list.png",
@@ -150,7 +150,7 @@
       "name": "Cosequin",
       "use": "Joint health supplement for arthritis and cartilage repair",
       "image2": "../../../Assets/Images/star_rating_img.webp",
-      "price": "$300"
+      "price": "300"
     },
     {
       "image": "../../../Assets/Images/my-wish-list.png",
@@ -158,7 +158,7 @@
       "name": "Deramaxx",
       "use": "NSAID for pain and inflammation relief in dogs, typically for post-surgery or arthritis pain",
       "image2": "../../../Assets/Images/star_rating_img.webp",
-      "price": "$270"
+      "price": "270"
     }
   ]
 }

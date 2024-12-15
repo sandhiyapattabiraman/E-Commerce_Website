@@ -3,58 +3,58 @@
       {
         "image": "../../../Assets/Images/my-wish-list.png",
         "image1": "../../../Assets/Images/web2_img.jpg",
-        "name":"accessory",
+        "name":"accessory 1",
         "image2": "../../../Assets/Images/star_rating_img.webp",
-        "price": "$100"
+        "price": "100"
       },
       {
         "image": "../../../Assets/Images/my-wish-list.png",
         "image1": "../../../Assets/Images/web2_img.jpg",
-        "name":"accessory",
+        "name":"accessory 2",
         "image2": "../../../Assets/Images/star_rating_img.webp",
-        "price": "$200"
+        "price": "200"
       },
       {
         "image": "../../../Assets/Images/my-wish-list.png",
         "image1": "../../../Assets/Images/web2_img.jpg",
-        "name":"accessory",
+        "name":"accessory 3",
         "image2": "../../../Assets/Images/star_rating_img.webp",
-        "price": "$150"
+        "price": "150"
       },
       {
         "image": "../../../Assets/Images/my-wish-list.png",
         "image1": "../../../Assets/Images/web2_img.jpg",
-        "name":"accessory",
+        "name":"accessory 4",
         "image2": "../../../Assets/Images/star_rating_img.webp",
-        "price": "$155"
+        "price": "155"
       },
       {
         "image": "../../../Assets/Images/my-wish-list.png",
         "image1": "../../../Assets/Images/web2_img.jpg",
-        "name":"accessory",
+        "name":"accessory 5",
         "image2": "../../../Assets/Images/star_rating_img.webp",
-        "price": "$250"
+        "price": "250"
       },
       {
         "image": "../../../Assets/Images/my-wish-list.png",
         "image1": "../../../Assets/Images/web2_img.jpg",
-        "name":"accessory",
+        "name":"accessory 6",
         "image2": "../../../Assets/Images/star_rating_img.webp",
-        "price": "$249"
+        "price": "249"
       },
       {
         "image": "../../../Assets/Images/my-wish-list.png",
         "image1": "../../../Assets/Images/web2_img.jpg",
-        "name":"accessory",
+        "name":"accessory 7",
         "image2": "../../../Assets/Images/star_rating_img.webp",
-        "price": "$300"
+        "price": "300"
       },
       {
         "image": "../../../Assets/Images/my-wish-list.png",
         "image1": "../../../Assets/Images/web2_img.jpg",
-        "name":"accessory",
+        "name":"accessory 8",
         "image2": "../../../Assets/Images/star_rating_img.webp",
-        "price": "$270"
+        "price": "270"
       }
     ]
   }
