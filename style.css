@@ -214,13 +214,13 @@ body{
     width: 10px;
     height: 10px;
     margin: 0 5px;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: pink;
     border-radius: 50%;
     cursor: pointer;
   }
 
   .dot.active {
-    background-color: white;
+    background-color: rgb(235, 42, 74);
   }
 
 

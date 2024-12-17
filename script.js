@@ -51,7 +51,7 @@ setInterval(nextSlide, 5000);
 
 
 
-fetch('./categories.json')
+fetch('./Assets/pages/json/categories.json')
 .then(response => response.json())
 .then(data => {
   const categoriesContainer = document.getElementById("categories");

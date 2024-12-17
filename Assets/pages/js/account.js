@@ -36,7 +36,7 @@ onAuthStateChanged(auth, async (user) => {
         usernameButton.textContent = `Welcome, ${userData.username}`; // Display username
       } else {
         console.error("User data not found in Firestore.");
-        usernameButton.textContent = "Welcome, User";
+        window.location.href = "../../../Assets/pages/html/login.html";
       }
     } catch (error) {
       console.error("Error fetching user details from Firestore:", error);

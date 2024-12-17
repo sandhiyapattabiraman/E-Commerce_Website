@@ -103,14 +103,14 @@
 
 // Array of JSON file paths
 const jsonFiles = [
-    './Assets/pages/json/accessory.json',
-    './Assets/pages/json/carriers.json',
-    './Assets/pages/json/beds.json',
-    './Assets/pages/json/cleaning.json',
-    './Assets/pages/json/food_treats.json',
-    './Assets/pages/json/medicine.json',
-    './Assets/pages/json/pet_house.json',
-    './Assets/pages/json/toys.json'
+    '../../../Assets/pages/json/accessory.json',
+    '../../../Assets/pages/json/carriers.json',
+    '../../../Assets/pages/json/beds.json',
+    '../../../Assets/pages/json/cleaning.json',
+    '../../../Assets/pages/json/food_treats.json',
+    '../../../Assets/pages/json/medicine.json',
+    '../../../Assets/pages/json/pet_house.json',
+    '../../../Assets/pages/json/toys.json'
 ];
 
 // Fetch products from multiple JSON files
