@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Product</title>
+  <link rel="stylesheet" href="../../../Assets/pages/css/add-product.css">
+</head>
+<body>
+
+  <!-- Product submission form -->
+  <form id="addProductForm">
+    <h2>Add Product</h2>
+
+    <!-- Product Name -->
+    <label for="productName">Product Name</label>
+    <input type="text" id="productName" required>
+
+    <!-- Category Selection -->
+    <label for="productCategory">Category</label>
+    <select id="productCategory" required>
+      <option value="accessories">Accessory</option>
+      <option value="beds">Beds</option>
+      <option value="toys">Toys</option>
+      <option value="medicine">Medicine</option>
+      <option value="food">Food & Treats</option>
+      <option value="cleanings">Cleaning and Maintenance</option>
+      <option value="house">Pet House</option>
+      <option value="carriers">Travel and Carriers</option>
+    </select>
+
+    <!-- Product Price -->
+    <label for="productPrice">Price</label>
+    <input type="number" id="productPrice" required>
+
+    <!-- Product Image URL -->
+    <label for="productImage">Product Image URL</label>
+    <input type="url" id="productImage" required>
+
+    <!-- Submit Button -->
+    <button type="submit">Add Product</button>
+  </form>
+
+  <script type="module" src="../../../Assets/pages/js/product-management.js"></script>
+ 
+</body>
+</html>

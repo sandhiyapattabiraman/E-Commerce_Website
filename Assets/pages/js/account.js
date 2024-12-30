@@ -20,8 +20,8 @@ const auth = getAuth();
 const db = getFirestore(app);
 
 // DOM References
-const usernameButton = document.querySelector(".profile-actions .action-button:first-child");
-const logoutButton = document.querySelector(".profile-actions .action-button:last-child");
+const usernameDisplay = document.querySelector(".username-display");
+const logoutButton = document.querySelector(".profile-actions .action-button");
 
 // Handle authentication state
 onAuthStateChanged(auth, async (user) => {
@@ -33,14 +33,14 @@ onAuthStateChanged(auth, async (user) => {
 
       if (userDoc.exists()) {
         const userData = userDoc.data();
-        usernameButton.textContent = `Welcome, ${userData.username}`; // Display username
+        usernameDisplay.textContent = `Welcome, ${userData.username}`; // Display username
       } else {
         console.error("User data not found in Firestore.");
         window.location.href = "../../../Assets/pages/html/login.html";
       }
     } catch (error) {
       console.error("Error fetching user details from Firestore:", error);
-      usernameButton.textContent = "Welcome, User";
+      window.location.href = "../../../Assets/pages/html/login.html";
     }
   } else {
     // User is not logged in, redirect to login page

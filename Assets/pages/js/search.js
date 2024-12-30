@@ -1,206 +1,170 @@
-// // Array of JSON file paths
-// const jsonFiles = [
-//     './Assets/pages/json/accessory.json',
-//     './Assets/pages/json/carriers.json',
-//     './Assets/pages/json/beds.json',
-//     './Assets/pages/json/cleaning.json',
-//     './Assets/pages/json/food_treats.json',
-//     './Assets/pages/json/medicine.json',
-//     './Assets/pages/json/pet_house.json',
-//     './Assets/pages/json/toys.json'
-// ];
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
+import { getFirestore } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-analytics.js";
 
-// // Fetch products from multiple JSON files
-// async function fetchProducts() {
-//     const allProducts = [];
+// Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyBEI1_9P4cuTNZ7lToZDzXia6vmfq3vf1w",
+  authDomain: "pet-world-945a1.firebaseapp.com",
+  projectId: "pet-world-945a1",
+  storageBucket: "pet-world-945a1.appspot.com",
+  messagingSenderId: "65370724893",
+  appId: "1:65370724893:web:9c615c57b3ad459bdd04f4",
+  measurementId: "G-Y4LZ85V604"
+};
 
-//     try {
-//         // Fetch data from each JSON file and combine them
-//         for (let file of jsonFiles) {
-//             const response = await fetch(file);
-//             const data = await response.json();
-//             if (data.products) {
-//                 allProducts.push(...data.products);  // Combine products from all JSON files
-//             } else {
-//                 console.warn(`No products found in ${file}`);
-//             }
-//         }
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+const auth = getAuth();
+const db = getFirestore(app);
 
-//         // Display all products initially
-//         displayProducts(allProducts);
+let currentUser = null;
 
-//         // Add the search event listener
-//         const searchBar = document.getElementById("searchBar");
-//         searchBar.addEventListener("input", function() {
-//             searchProducts(allProducts);
-//         });
-//     } catch (error) {
-//         console.error('Error loading products:', error);
-//     }
-// }
+// Listen for authentication state changes
+onAuthStateChanged(auth, (user) => {
+  currentUser = user;
+  console.log("User state changed:", user ? user.email : "No user");
+  updateCartCount();
+});
 
-// // Function to display products
-// function displayProducts(products) {
-//     const itemsContainer = document.getElementById("items");
-//     itemsContainer.innerHTML = ""; // Clear previous products
-
-//     // Loop through products and create HTML elements for each
-//     products.forEach(product => {
-//         const productDiv = document.createElement("div");
-//         productDiv.classList.add("product");
-
-//         // Safeguard for missing image or price
-//         const image = product.image || './default-image.jpg'; // fallback image
-//         const name = product.name || 'Unnamed Product';
-//         const price = product.price || 'N/A';
-//         const image1 = product.image1 || './default-image.jpg'; // fallback image
-//         const image2 = product.image2 || './default-image.jpg'; // fallback image
-
-//         productDiv.innerHTML = `
-//             <img src="${image}" alt="Product Image" class="wishlist-img">
-//             <img src="${image1}" alt="Product Image" class="product-image">
-//             <p class="product-name">${name}</p>
-//             <img class="star_rating" src="${image2}" alt="Star Rating">
-//             <p class="price">${price}</p>
-//             <button class="Button">Add to Cart</button>
-//             <button type="button" class="Buttons">Buy Now</button>
-//         `;
-
-//         itemsContainer.appendChild(productDiv);
-//     });
-// }
-
-// // Function to filter products based on search input (name or price)
-// function searchProducts(products) {
-//     const searchQuery = document.getElementById("searchBar").value.toLowerCase();
-
-//     // If search is empty, display all products
-//     if (searchQuery === "") {
-//         displayProducts(products);
-//     } else {
-//         // Filter products based on search query (case-insensitive)
-//         const filteredProducts = products.filter(product => {
-//             const nameMatch = product.name && product.name.toLowerCase().includes(searchQuery);
-//             const priceMatch = product.price && product.price.toLowerCase().includes(searchQuery);
-//             return nameMatch || priceMatch;  // Match by name OR price
-//         });
-
-//         // Display filtered products
-//         displayProducts(filteredProducts);
-
-//         // If no products are found, show a message
-//         if (filteredProducts.length === 0) {
-//             const itemsContainer = document.getElementById("items");
-//             itemsContainer.innerHTML = '<p>No products found.</p>';
-//         }
-//     }
-// }
-
-// // Call fetchProducts when the page loads
-// fetchProducts();
-
-
-
-// Array of JSON file paths
 const jsonFiles = [
-    '../../../Assets/pages/json/accessory.json',
-    '../../../Assets/pages/json/carriers.json',
-    '../../../Assets/pages/json/beds.json',
-    '../../../Assets/pages/json/cleaning.json',
-    '../../../Assets/pages/json/food_treats.json',
-    '../../../Assets/pages/json/medicine.json',
-    '../../../Assets/pages/json/pet_house.json',
-    '../../../Assets/pages/json/toys.json'
+  "../../../Assets/pages/json/accessory.json",
+  "../../../Assets/pages/json/carriers.json",
+  "../../../Assets/pages/json/beds.json",
+  "../../../Assets/pages/json/cleaning.json",
+  "../../../Assets/pages/json/food_treats.json",
+  "../../../Assets/pages/json/medicine.json",
+  "../../../Assets/pages/json/pet_house.json",
+  "../../../Assets/pages/json/toys.json"
 ];
 
 // Fetch products from multiple JSON files
 async function fetchProducts() {
-    const allProducts = [];
+  const allProducts = [];
+  try {
+    for (let file of jsonFiles) {
+      const response = await fetch(file);
+      if (!response.ok) {
+        console.error(`Failed to fetch ${file}:`, response.status);
+        continue;
+      }
 
-    try {
-        // Fetch data from each JSON file and combine them
-        for (let file of jsonFiles) {
-            const response = await fetch(file);
-            const data = await response.json();
-            if (data.products) {
-                allProducts.push(...data.products); // Combine products from all JSON files
-            } else {
-                console.warn(`No products found in ${file}`);
-            }
-        }
+      const data = await response.json();
+      console.log(`Fetched data from ${file}:`, data);
 
-        // Add the search event listener after loading all products
-        const searchBar = document.getElementById("searchBar");
-        searchBar.addEventListener("input", function () {
-            searchProducts(allProducts);
-        });
-
-        // Display an initial message or placeholder
-        const itemsContainer = document.getElementById("items");
-        itemsContainer.innerHTML = '<p>Start typing to search for products...</p>';
-    } catch (error) {
-        console.error('Error loading products:', error);
+      if (data.products) {
+        allProducts.push(...data.products);
+      } else {
+        console.warn(`No 'products' field in ${file}`);
+      }
     }
+
+    const searchBar = document.getElementById("searchBar");
+    searchBar.addEventListener("input", function () {
+      searchProducts(allProducts);
+    });
+
+    const itemsContainer = document.getElementById("items");
+    itemsContainer.innerHTML = '<p>Start typing to search for products...</p>';
+  } catch (error) {
+    console.error("Error fetching products:", error);
+  }
 }
 
 // Function to display products
 function displayProducts(products) {
-    const itemsContainer = document.getElementById("items");
-    itemsContainer.innerHTML = ""; // Clear previous products
+  const itemsContainer = document.getElementById("items");
+  itemsContainer.innerHTML = "";
 
-    // Loop through products and create HTML elements for each
-    products.forEach(product => {
-        const productDiv = document.createElement("div");
-        productDiv.classList.add("product");
+  products.forEach(product => {
+    const productDiv = document.createElement("div");
+    productDiv.classList.add("product");
 
-        // Safeguard for missing image or price
-        const image = product.image || './default-image.jpg'; // fallback image
-        const name = product.name || 'Unnamed Product';
-        const price = product.price || 'N/A';
-        const image1 = product.image1 || './default-image.jpg'; // fallback image
-        const image2 = product.image2 || './default-image.jpg'; // fallback image
+    const image = product.image || "./default-image.jpg";
+    const name = product.name || "Unnamed Product";
+    const price = product.price || "N/A";
+    const image1 = product.image1 || "./default-image.jpg";
+    const image2 = product.image2 || "./default-image.jpg";
 
-        productDiv.innerHTML = `
-            <img src="${image}" alt="Product Image" class="wishlist-img">
-            <img src="${image1}" alt="Product Image" class="product-image">
-            <p class="product-name">${name}</p>
-            <img class="star_rating" src="${image2}" alt="Star Rating">
-            <p class="price">${price}</p>
-            <button class="Button">Add to Cart</button>
-            <button type="button" class="Buttons">Buy Now</button>
-        `;
+    productDiv.innerHTML = `
+      <img src="${image}" alt="Product Image" class="wishlist-img">
+      <img src="${image1}" alt="Product Image" class="product-image">
+      <p class="product-name">${name}</p>
+      <img class="star_rating" src="${image2}" alt="Star Rating">
+      <p class="price">${price}</p>
+      <button class="Button" onclick="addToCart('${name}', '${price}', '${image1}')">Add to Cart</button>
+      <button type="button" class="Buttons">Buy Now</button>
+    `;
 
-        itemsContainer.appendChild(productDiv);
-    });
+    itemsContainer.appendChild(productDiv);
+  });
 }
 
-// Function to filter products based on search input (name or price)
+// Function to search products
 function searchProducts(products) {
-    const searchQuery = document.getElementById("searchBar").value.toLowerCase().trim();
+  const searchQuery = document.getElementById("searchBar").value.toLowerCase().trim();
+  const itemsContainer = document.getElementById("items");
 
-    // If search query is empty, show a placeholder message
-    if (searchQuery === "") {
-        const itemsContainer = document.getElementById("items");
-        itemsContainer.innerHTML = '<p>Start typing to search for products...</p>';
-        return;
-    }
+  if (searchQuery === "") {
+    itemsContainer.innerHTML = '<p>Start typing to search for products...</p>';
+    return;
+  }
 
-    // Filter products based on search query (case-insensitive)
-    const filteredProducts = products.filter(product => {
-        const nameMatch = product.name && product.name.toLowerCase().includes(searchQuery);
-        const priceMatch = product.price && product.price.toLowerCase().includes(searchQuery);
-        return nameMatch || priceMatch; // Match by name OR price
-    });
+  const filteredProducts = products.filter(product => {
+    const nameMatch = product.name && product.name.toLowerCase().includes(searchQuery);
+    const priceMatch = product.price && product.price.toLowerCase().includes(searchQuery);
+    return nameMatch || priceMatch;
+  });
 
-    // Display filtered products
+  if (filteredProducts.length > 0) {
     displayProducts(filteredProducts);
-
-    // If no products are found, show a message
-    if (filteredProducts.length === 0) {
-        const itemsContainer = document.getElementById("items");
-        itemsContainer.innerHTML = '<p>No products found.</p>';
-    }
+  } else {
+    itemsContainer.innerHTML = '<p>No products found matching your search query.</p>';
+  }
 }
 
-// Call fetchProducts when the page loads
-fetchProducts();
+// Add to Cart
+window.addToCart = function addToCart(name, price, img) {
+  if (!currentUser) {
+    alert("You need to log in to add items to the cart.");
+    window.location.href = "../../../Assets/pages/html/login.html";
+    return;
+  }
+
+  const userEmail = `cart_${currentUser.email.replace(".", "_")}`;
+  let cart = JSON.parse(localStorage.getItem(userEmail)) || [];
+
+  const existingItem = cart.find(item => item.name === name);
+  if (existingItem) {
+    if (existingItem.quantity < 10) {
+      existingItem.quantity += 1;
+      alert("Increased quantity in your cart!");
+    } else {
+      alert("Maximum quantity reached.");
+    }
+  } else {
+    cart.push({ name, price, img, quantity: 1 });
+    alert("Product added to cart!");
+  }
+
+  localStorage.setItem(userEmail, JSON.stringify(cart));
+  updateCartCount();
+};
+
+function updateCartCount() {
+  const userEmail = currentUser ? `cart_${currentUser.email.replace(".", "_")}` : "cart_guest";
+  const cart = JSON.parse(localStorage.getItem(userEmail)) || [];
+  const countElement = document.querySelector(".cart-count");
+
+  if (countElement) {
+    const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+    countElement.textContent = totalItems;
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  fetchProducts();
+  updateCartCount();
+});

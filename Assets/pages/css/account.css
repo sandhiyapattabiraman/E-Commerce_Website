@@ -6,46 +6,26 @@ body {
     background-color: #f9f9f9;
     text-align: center;
   }
-#header{
-    position: fixed;
-    top: 0%;
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+
+header{
+  text-align: start;
+}
+  .back-button {
     background-color: pink;
-    padding: 20px;
-    z-index: 2;
-}
-
-
-#header a{
-    text-decoration: none;
-    color: black;
-}
-
-
-
-.search{
-    height: 30px;
-}
-
-.atoc-img{
-    height: 30px;
-
-}
-
-.profile-image{
-    height: 30px;
-}
-
-.wishlist-image{
-    height: 35px;
-}
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    margin: 10px;
+    display: inline-block;
+    }
+    
+    .back-button:hover {
+    background-color: rgb(243, 119, 139);
+    }
   /* Profile Section */
-  .profile-container {
-    margin-top: 150px;
-  }
+  
   
   .profile-picture img {
     width: 100px;
@@ -58,6 +38,9 @@ body {
     margin-top: 10px;
   }
   
+  p{
+    font-size: 25px;
+  }
   .action-button {
     background-color: #ccc;
     border: none;

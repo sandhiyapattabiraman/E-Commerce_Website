@@ -283,8 +283,20 @@ body{
 
 
   /* items */
-
-
+  .wishlist-heart {
+    font-size: 24px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  .wishlist-heart.filled {
+    color: red;
+  }
+  
+  .wishlist-heart.empty {
+    color: white;
+  }
+  
 
   h1{
     font-size: 30px;
@@ -364,6 +376,31 @@ body{
 .Button:hover, .Buttons:hover {
   background-color: #45A049;
 }
+
+/* Message container styling */
+.message-container {
+  position: fixed;
+  top: 150px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.7);
+  color: black;
+  padding: 10px;
+  border-radius: 5px;
+  display: none;
+  z-index: 1000; /* Ensure the message is above other content */
+}
+
+/* Success message styling */
+.message-container.success {
+  background-color: pink;
+}
+
+/* Error message styling */
+.message-container.error {
+  background-color: red;
+}
+
 
 /* Mobile Responsiveness */
 @media (max-width: 768px) {

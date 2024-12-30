@@ -8,32 +8,7 @@
 </head>
 <body>
     <header>
-        <nav id="header">
-        <div>
-            <h3>PET WORLD</h3>
-        </div>
-        <a href="../../../index.html#home">HOME</a>
-        <a href="../../../index.html#category">CATEGORIES</a>
-        <a href="../../../index.html#contact">CONTACT</a>
-        <a href="../../../Assets/pages/html/login.html">LOGIN</a> 
-        <div>
-            <a href="../../../search.html"><input type="text" placeholder="Search" class="search" id="searchBar"></a>
-        </div>
-        
-        <div>
-            <img src="../../../Assets/Images/my-wish-list.png" class="wishlist-image" alt="wishlist-icon">
-        </div>
-        <div>
-            <a href="../../../Assets/pages/html/cart.html">
-            <img src="../../../Assets/Images/Add-to-cart-image.webp" class="atoc-img" alt="add-to-cart-icon">
-        </a>
-        </div>
-        <div>
-            <a href="../../../Assets/pages/html/account.html">
-                <img src="../../../Assets/Images/profile-img.png" class="profile-image" alt="profile-icon">
-              </a>
-        </div>
-    </nav>
+        <button onclick="window.location.href='../../../index.html'" class="back-button">Back</button>
     </header>
 
     <main>
@@ -41,7 +16,14 @@
     <div class="container">
         <h1>Wishlist</h1>
     </div>
+    <div id="items" class="product-container"></div>
+    <!-- <div id="message-container" style="display:none;" ></div> -->
+    <div id="message-container" class="message-container">
+        <!-- Feedback messages will go here -->
+    </div>
 </section>
 </main>
+<script type="module" src="../../../Assets/pages/js/wishlist.js"></script>
+<script type="module" src="../../../Assets/pages/js/cart.js"></script>
 </body>
 </html>

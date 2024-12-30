@@ -1,0 +1,86 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+  
+  body {
+    background-color: #f8f8f8; /* Light background */
+    color: #333; /* Dark text color for contrast */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  h2 {
+    text-align: center;
+    color: #e91e63; /* Soft pink for header */
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+  }
+  
+  /* Form Styles */
+  #addProductForm {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 8px;
+    color: #666;
+  }
+  
+  input, select, button {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  
+  input:focus, select:focus, button:focus {
+    outline: none;
+    border-color: #e91e63; /* Pink border on focus */
+  }
+  
+  input[type="text"], input[type="number"], input[type="url"], select {
+    background-color: #f9f9f9;
+  }
+  
+  button {
+    background-color: #e91e63; /* Soft pink for buttons */
+    color: white;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #c2185b; /* Darker pink on hover */
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 600px) {
+    #addProductForm {
+      padding: 15px;
+    }
+  
+    h2 {
+      font-size: 1.5rem;
+    }
+  
+    button {
+      padding: 14px;
+    }
+  }
+  

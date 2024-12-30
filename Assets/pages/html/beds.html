@@ -17,8 +17,10 @@
         <a href="../../../index.html#contact">CONTACT</a>
         <a href="../../../Assets/pages/html/login.html">LOGIN</a> 
         <div>
-            <a href="../../../search.html"><input type="text" placeholder="Search" class="search" id="searchBar"></a>
-        </div>
+            <a href="../../../Assets/pages/html/search.html">
+                <img src="../../../Assets/Images/search_icon.png" alt="search icon" class="search" id="searchBar">
+            </a>
+       </div>
         
         <div>
             <a href="../../../Assets/pages/html/wishlist.html">
@@ -41,8 +43,13 @@
     <main>
         <div class="container"></div>
         <div id="items" class="product-container"></div>
+
+        <div id="message-container" class="message-container">
+            <!-- Feedback messages will go here -->
+        </div>
     </main>
     <script type="module" src="../../../Assets/pages/js/beds.js"></script>
     <script type="module" src="../../../Assets/pages/js/cart.js"></script>
+    <script type="module" src="../../../product-management.js"></script>
 </body>
 </html>
