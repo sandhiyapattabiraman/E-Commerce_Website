@@ -6,11 +6,6 @@
         "link":"../../../Assets/pages/html/food_treats.html"
       },
       {
-        "image": "../../../Assets/Images/pet_medicine_img.webp",
-        "name": "Medicines",
-        "link":"../../../Assets/pages/html/medicines.html"
-      },
-      {
         "image": "../../../Assets/Images/toys&entertainment_img.jpg",
         "name": "Toys & Entertainment",
         "link":"../../../Assets/pages/html/toys.html"

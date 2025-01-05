@@ -28,114 +28,60 @@ onAuthStateChanged(auth, (user) => {
   if (user) {
     console.log("User is logged in:", user.email);
     currentUser = user;
-    fetchWishlist();  // Fetch wishlist when user logs in
+    loadWishlist();  // Fetch wishlist when user logs in
   } else {
     console.log("No user is logged in.");
     currentUser = null;
   }
 });
 
-
-// Function to fetch the wishlist products from Firestore or localStorage
-async function fetchWishlist() {
-    const wishlistContainer = document.getElementById("items");
+// Load wishlist from local storage
+function loadWishlist() {
+    console.log(JSON.parse(localStorage.getItem('wishlist')));
+    const wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+    const wishlistContainer = document.getElementById('wishlist-container');
     
-    if (!currentUser) {
-      // Use local storage if not logged in
-      const userKey = "wishlist_guest";
-      const wishlist = JSON.parse(localStorage.getItem(userKey)) || [];
-      displayWishlist(wishlist);  // Display the local storage wishlist
-      return;
-    }
-  
-    // If logged in, fetch from Firestore
-    const wishlistRef = collection(db, "users", currentUser.uid, "wishlist");
-    const q = query(wishlistRef);
-  
-    try {
-      const querySnapshot = await getDocs(q);
-      const wishlistItems = [];
-  
-      querySnapshot.forEach((doc) => {
-        wishlistItems.push(doc.data());
-      });
-  
-      if (wishlistItems.length > 0) {
-        displayWishlist(wishlistItems);
-      } else {
-        wishlistContainer.innerHTML = "<p>No products in your wishlist.</p>";
-      }
-    } catch (error) {
-      console.error("Error fetching wishlist products:", error);
-    }
-  }
-  
-  // Function to display the products in the wishlist
-  function displayWishlist(products) {
-    const wishlistContainer = document.getElementById("items");
-    wishlistContainer.innerHTML = ""; // Clear existing content
-  
-    if (products.length === 0) {
-      wishlistContainer.innerHTML = "<p>Your wishlist is empty.</p>";
-      return;
-    }
-  
-    products.forEach((product) => {
-      const productDiv = document.createElement("div");
-      productDiv.classList.add("product");
-      productDiv.innerHTML = `
-        <img src="${product.image1}" alt="${product.name}" class="product-image">
-        <p>${product.name}</p>
-        <p>Price: ${product.price}</p>
-        <button type="button" class="remove-button" onclick="removeFromWishlist('${product.name}')">Remove</button>
-        <button type="button" class="Button" onclick="addToCart('${product.name}', '${product.price}', '${product.image1}')">
-          Add to Cart
-        </button>
-        <button type="button" class="Buttons">Buy Now</button>
-      `;
-      wishlistContainer.appendChild(productDiv);
+    wishlistContainer.innerHTML = '';
+    
+    wishlist.forEach((item, index) => {
+        const wishlistItem = document.createElement('div');
+        wishlistItem.innerHTML = `
+            <img src="${item.image}" alt="${item.name}" width="50" height="50">
+            <p>${item.name}</p>
+            <p>₹${item.price}</p> 
+            <button type="button" class="Button" onclick="addToCart('${item.name}', '${item.price}', '${item.image}',this)">Add to Cart</button>
+            <button onclick="buyNow('${item.name}', '${item.price}', '${item.image}')">Buy Now</button>
+            <button onclick="removeFromWishlist(${index})">Remove</button>
+        `;
+        wishlistContainer.appendChild(wishlistItem);
     });
-  }
-  
-  // Function to remove a product from the wishlist
-  window.removeFromWishlist = async function removeFromWishlist(productName) {
-    if (!currentUser) {
-      showMessage("You need to log in to remove items from the wishlist.", "error");
-      window.location.href = "../../../Assets/pages/html/login.html";
-      return;
+    restoreCartButtons()
+}
+
+// Remove item from wishlist
+window.removeFromWishlist=function(index) {
+    let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+    
+    if (index >= 0 && index < wishlist.length) {
+        wishlist.splice(index, 1); // Remove the item at the specified index
+        localStorage.setItem('wishlist', JSON.stringify(wishlist)); // Update local storage
+        loadWishlist(); // Reload the wishlist to reflect changes
+    } else {
+        console.error('Invalid index for removal:', index);
     }
-  
-    const productRef = doc(db, "users", currentUser.uid, "wishlist", productName);
-  
-    try {
-      await deleteDoc(productRef);  // Remove from Firestore
-      showMessage("Product removed from wishlist!", "success");
-  
-      // Also remove from local storage
-      const userKey = `wishlist_${currentUser.email.replace('.', '_')}`;
-      let wishlist = JSON.parse(localStorage.getItem(userKey)) || [];
-      wishlist = wishlist.filter((item) => item.name !== productName);
-      localStorage.setItem(userKey, JSON.stringify(wishlist));
-  
-      fetchWishlist();  // Refresh the wishlist UI after removal
-    } catch (error) {
-      console.error("Error removing product from wishlist:", error);
-      showMessage("Error removing product from wishlist.", "error");
-    }
-  };
+}
 
 
-// Add to cart function
 window.addToCart = function addToCart(name, price, img, buttonElement) {
     if (!currentUser) {
       showMessage("You need to log in to add items to the cart.", "error");
       window.location.href = "../../../Assets/pages/html/login.html";
       return;
     }
-  
+
     const userEmail = `cart_${currentUser.email.replace('.', '_')}`;
     let cart = JSON.parse(localStorage.getItem(userEmail)) || [];
-  
+
     const existingItem = cart.find((item) => item.name === name);
     if (existingItem) {
       if (existingItem.quantity < 10) {
@@ -148,37 +94,71 @@ window.addToCart = function addToCart(name, price, img, buttonElement) {
       cart.push({ name, price, img, quantity: 1 });
       showMessage("Product added to cart!", "success");
     }
-  
+
     localStorage.setItem(userEmail, JSON.stringify(cart));
     updateCartCount();
-  
+
     if (buttonElement) {
       buttonElement.textContent = "Go to Cart";
       buttonElement.onclick = () => {
         window.location.href = "../../../Assets/pages/html/cart.html";
       };
     }
-  };
+};
 
 
-  // Show feedback messages
+function restoreCartButtons() {
+    const userEmail = currentUser ? `cart_${currentUser.email.replace('.', '_')}` : "cart_guest";
+    const cart = JSON.parse(localStorage.getItem(userEmail)) || [];
+
+    document.querySelectorAll('.product').forEach((productDiv) => {
+      const productName = productDiv.querySelector('p').textContent.trim();
+      const addToCartButton = productDiv.querySelector('button');
+
+      if (cart.some((item) => item.name === productName)) {
+        addToCartButton.textContent = "Go to Cart";
+        addToCartButton.onclick = () => {
+          window.location.href = "../../../Assets/pages/html/cart.html";
+        };
+      }
+    });
+}
+
+// Update cart count
+function updateCartCount() {
+    const userEmail = currentUser ? `cart_${currentUser.email.replace('.', '_')}` : "cart_guest";
+    const cart = JSON.parse(localStorage.getItem(userEmail)) || [];
+    const countElement = document.querySelector(".cart-count");
+  
+    if (countElement) {
+      const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+      countElement.textContent = totalItems;
+    }
+  }
+
+// Buy now function
+window.buyNow = function buyNow(name, price, img) {
+    if (!currentUser) {
+      showMessage("You need to log in to proceed with the purchase.", "error");
+      window.location.href = "../../../Assets/pages/html/login.html";
+      return;
+    }
+  
+    const productDetails = { name, price, img };
+    localStorage.setItem("buyNowProduct", JSON.stringify(productDetails));
+    window.location.href = "../../../Assets/pages/html/buynow.html";
+};
+
+// Show feedback messages
 function showMessage(message, type) {
     const messageContainer = document.getElementById("message-container");
     if (messageContainer) {
       messageContainer.textContent = message;
-      
-      // Remove any existing success or error classes
       messageContainer.classList.remove("success", "error");
-      
-      // Add the appropriate class for the type
       messageContainer.classList.add(type);
-      
-      // Show the message container
       messageContainer.style.display = "block";
-  
-      // Hide the message after 3 seconds
       setTimeout(() => {
         messageContainer.style.display = "none";
       }, 3000);
     }
-  }
+}

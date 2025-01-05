@@ -68,4 +68,81 @@ header{
     margin: 20px;
   }
   
- 
+/* General Order Container Styling */
+.orders-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1rem;
+  background-color: #f9f9f9;
+}
+
+/* Individual Order Item Styling */
+.order-item {
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.order-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Order Items Details */
+.order-items p {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+  color: #333;
+}
+
+.order-item-details {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1rem;
+  border-top: 1px solid #ddd;
+  padding-top: 1rem;
+}
+
+/* Image Styling */
+.order-item-details img {
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  background-color: #f1f1f1;
+}
+
+/* Text Details for Each Item */
+.order-item-details div {
+  display: flex;
+  flex-direction: row;
+  gap: 0.3rem;
+}
+
+.order-item-details p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.order-item-details p strong {
+  color: #333;
+  font-size: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .order-item-details {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .order-item-details img {
+    width: 70px;
+    height: 70px;
+  }
+}

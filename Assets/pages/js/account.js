@@ -1,61 +1,115 @@
 // Import Firebase SDKs
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
 import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
-import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+import { getFirestore, doc, getDoc, collection, getDocs, query } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 
-// Firebase configuration
+// Firebase Configuration
 const firebaseConfig = {
   apiKey: "AIzaSyBEI1_9P4cuTNZ7lToZDzXia6vmfq3vf1w",
   authDomain: "pet-world-945a1.firebaseapp.com",
   projectId: "pet-world-945a1",
-  storageBucket: "pet-world-945a1.firebasestorage.app",
+  storageBucket: "pet-world-945a1.appspot.com",
   messagingSenderId: "65370724893",
   appId: "1:65370724893:web:9c615c57b3ad459bdd04f4",
-  measurementId: "G-Y4LZ85V604"
+  measurementId: "G-Y4LZ85V604",
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const auth = getAuth();
+const auth = getAuth(app);
 const db = getFirestore(app);
 
 // DOM References
+const ordersContainer = document.querySelector(".orders-container");
 const usernameDisplay = document.querySelector(".username-display");
 const logoutButton = document.querySelector(".profile-actions .action-button");
 
-// Handle authentication state
+// Authentication State
 onAuthStateChanged(auth, async (user) => {
   if (user) {
-    // Fetch user details from Firestore
-    const userRef = doc(db, "users", user.uid); // Assuming user details are stored under "users" collection with UID as the document ID
+    const userRef = doc(db, "users", user.uid);
     try {
       const userDoc = await getDoc(userRef);
 
       if (userDoc.exists()) {
-        const userData = userDoc.data();
-        usernameDisplay.textContent = `Welcome, ${userData.username}`; // Display username
+        usernameDisplay.textContent = `Welcome, ${userDoc.data().username}`;
+        loadOrders(user.email);
       } else {
-        console.error("User data not found in Firestore.");
         window.location.href = "../../../Assets/pages/html/login.html";
       }
     } catch (error) {
-      console.error("Error fetching user details from Firestore:", error);
+      console.error("Error fetching user details:", error);
       window.location.href = "../../../Assets/pages/html/login.html";
     }
   } else {
-    // User is not logged in, redirect to login page
     window.location.href = "../../../Assets/pages/html/login.html";
   }
 });
 
-// Logout functionality
-logoutButton.addEventListener("click", () => {
-  signOut(auth)
-    .then(() => {
-      console.log("User signed out successfully.");
-      window.location.href = "../../../Assets/pages/html/login.html";
-    })
-    .catch((error) => {
-      console.error("Error signing out:", error);
+async function loadOrders(userId) {
+  const ordersRef = collection(db, "users", userId, "orders");
+
+  try {
+    const querySnapshot = await getDocs(ordersRef);
+    ordersContainer.innerHTML = "";
+
+    if (querySnapshot.empty) {
+      ordersContainer.innerHTML = "<p>You have no orders yet.</p>";
+      return;
+    }
+
+    querySnapshot.forEach((doc) => {
+      const order = doc.data();
+      displayNewOrder(doc.id, order);
     });
+  } catch (error) {
+    console.error("Error loading orders:", error);
+    ordersContainer.innerHTML = "<p>Error loading orders.</p>";
+  }
+}
+
+
+
+
+// Call the function with actual userId and orderId
+loadOrderDetails("user-id", "order-id");
+
+function displayNewOrder(orderId, orderData) {
+  const orderDiv = document.createElement("div");
+  orderDiv.classList.add("order-item");
+
+  orderDiv.innerHTML = `
+    
+    <div class="order-items">
+      <p>Date:${new Date(orderData.date).toLocaleString()}</p>
+      <p>Total:₹${orderData.total}</p>
+      ${orderData.items.map((item) => 
+        `<div class="order-item-details">
+          <img src="${item.img || 'https://via.placeholder.com/50'}" alt="${item.name}" style="width: 50px; height: 50px; object-fit: cover;">
+            <p><strong>${item.name}</strong></p>
+            <p>Quantity: ${item.quantity}</p>
+            <p>Price: ₹${item.price}</p>
+        </div>`).join("")}
+    </div>
+  `;
+
+  ordersContainer.appendChild(orderDiv);
+}
+
+// Handle New Order Messages
+window.addEventListener("message", (event) => {
+  if (event.data && event.data.type === "new-order") {
+    const { orderId, orderData } = event.data;
+    displayNewOrder(orderId, orderData);
+  }
+});
+
+// Logout
+logoutButton.addEventListener("click", async () => {
+  try {
+    await signOut(auth);
+    window.location.href = "../../../Assets/pages/html/login.html";
+  } catch (error) {
+    console.error("Error signing out:", error);
+  }
 });

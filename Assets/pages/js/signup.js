@@ -64,13 +64,25 @@ form.addEventListener("submit", async function (event) {
     validForm = false;
   }
 
+
   // Validate email
   const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   if (!emailPattern.test(email)) {
     emailError.textContent = "Please enter a valid email address.";
     validForm = false;
   }
-
+  if (email.length > 254) {
+    emailError.textContent = "Username must not exceed 254 characters.";
+    validForm = false;
+  }
+  if (email.includes(" ")) {
+    emailError.textContent = "Please enter a valid email address.";
+    validForm = false;
+  }
+  if (!email.includes("@gmail.com") ||email.includes("@gmail.comgmail.com" ||email.includes("@gmail.com.com"))) {
+    emailError.textContent = "Please enter a valid email address.";
+    validForm = false;
+  }
   // Validate password
   if (password.includes(" ")) {
     passwordError.textContent = "Invalid Password";

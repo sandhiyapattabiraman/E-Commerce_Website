@@ -35,16 +35,7 @@ onAuthStateChanged(auth, (user) => {
   updateCartCount();
 });
 
-// Function to upload products for a specific category
-async function uploadProductsToFirestore(categoryName, productsData) {
-  try {
-    const categoryRef = doc(db, "products", categoryName);
-    await setDoc(categoryRef, productsData);
-    console.log(`${categoryName} products uploaded successfully!`);
-  } catch (error) {
-    console.error(`Error uploading ${categoryName} products:`, error);
-  }
-}
+
 
 // Function to fetch products for a specific category
 async function fetchProducts(categoryName) {
@@ -64,16 +55,18 @@ async function fetchProducts(categoryName) {
   }
 }
 
-// Function to display products in the UI
 function displayProducts(products) {
   const productList = document.getElementById("items");
   productList.innerHTML = ""; // Clear existing content
+
+  // Get the wishlist from local storage
+  let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
 
   products.forEach((product) => {
     const productDiv = document.createElement("div");
     productDiv.classList.add("product");
     productDiv.innerHTML = `
-      <span class="wishlist-heart" onclick="addToWishlist('${product.name}')">♡</span>
+      <span class="wishlist-heart">${isInWishlist(product.name, wishlist) ? '❤️' : '♡'}</span>
       <img src="${product.image1}" alt="${product.name}" class="product-image">
       <p>${product.name}</p>
       <img src="../../../Assets/images/star_rating_img.webp" alt="Rating" class="star_rating">
@@ -81,13 +74,67 @@ function displayProducts(products) {
       <button type="button" class="Button" onclick="addToCart('${product.name}', '${product.price}', '${product.image1}', this)">
         Add to Cart
       </button>
-      <button type="button" class="Buttons">Buy Now</button>
+      <button type="button" class="Button" onclick="buyNow('${product.name}', '${product.price}', '${product.image1}')">
+        Buy Now
+      </button>
     `;
+
+    const wishlistHeart = productDiv.querySelector(".wishlist-heart");
+    wishlistHeart.addEventListener("click", () => addToWishlist(wishlistHeart, product.name, product.price, product.image1));
     productList.appendChild(productDiv);
   });
 
   restoreCartButtons();
 }
+
+// Helper function to check if the product is in the wishlist
+function isInWishlist(name, wishlist) {
+  return wishlist.some(item => item.name === name);
+}
+
+window.addToWishlist = function addToWishlist(element, name, price, image) {
+  console.log("Wishlist clicked:", name); // Debugging log
+
+  const wishlistItem = {
+    name: name,
+    price: price,
+    image: image
+  };
+
+  let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+  const existingItem = wishlist.find(item => item.name === name);
+
+  if (!existingItem) {
+    wishlist.push(wishlistItem);
+    localStorage.setItem('wishlist', JSON.stringify(wishlist));
+    element.textContent = '❤️';
+  } else {
+    wishlist = wishlist.filter(item => item.name !== name);
+    localStorage.setItem('wishlist', JSON.stringify(wishlist));
+    element.textContent = '♡';
+  }
+
+  showMessage(`Item ${existingItem ? 'removed from' : 'added to'} wishlist!`, 'success');
+};
+
+
+
+
+
+
+window.buyNow = function buyNow(name, price, img) {
+  if (!currentUser) {
+    showMessage("You need to log in to proceed with the purchase.", "error");
+    window.location.href = "../../../Assets/pages/html/login.html";
+    return;
+  }
+
+  const productDetails = { name, price, img };
+  localStorage.setItem("buyNowProduct", JSON.stringify(productDetails));
+  window.location.href = "../../../Assets/pages/html/buynow.html";
+};
+
+
 
 // Add to cart function
 window.addToCart = function addToCart(name, price, img, buttonElement) {
@@ -175,6 +222,7 @@ function showMessage(message, type) {
     }, 3000);
   }
 }
+
 
 
 // Fetch products when the page loads
