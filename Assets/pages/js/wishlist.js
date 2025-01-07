@@ -32,6 +32,7 @@ onAuthStateChanged(auth, (user) => {
   } else {
     console.log("No user is logged in.");
     currentUser = null;
+    loadWishlist(); 
   }
 });
 

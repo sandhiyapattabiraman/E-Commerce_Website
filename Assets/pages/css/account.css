@@ -42,7 +42,7 @@ header{
     font-size: 25px;
   }
   .action-button {
-    background-color: #ccc;
+    background-color: pink;
     border: none;
     border-radius: 20px;
     padding: 10px 20px;
@@ -52,7 +52,7 @@ header{
   }
   
   .action-button:hover {
-    background-color: #bbb;
+    background-color: #f4aed1;
   }
   
   /* Orders Section */

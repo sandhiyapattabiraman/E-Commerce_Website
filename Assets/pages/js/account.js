@@ -1,7 +1,7 @@
 // Import Firebase SDKs
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
 import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
-import { getFirestore, doc, getDoc, collection, getDocs, query } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+import { getFirestore, doc, getDoc, collection, getDocs } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 
 // Firebase Configuration
 const firebaseConfig = {
@@ -22,7 +22,26 @@ const db = getFirestore(app);
 // DOM References
 const ordersContainer = document.querySelector(".orders-container");
 const usernameDisplay = document.querySelector(".username-display");
-const logoutButton = document.querySelector(".profile-actions .action-button");
+
+// Ensure the DOM is fully loaded before attaching event listeners
+document.addEventListener("DOMContentLoaded", () => {
+  const logoutButton = document.querySelector(".profile-actions .action-button");
+
+  if (logoutButton) {
+    logoutButton.addEventListener("click", async () => {
+      console.log("Logout button clicked");
+      try {
+        await signOut(auth);
+        console.log("Signed out successfully");
+        window.location.href = "../../../Assets/pages/html/login.html";
+      } catch (error) {
+        console.error("Error signing out:", error);
+      }
+    });
+  } else {
+    console.error("Logout button not found in the DOM.");
+  }
+});
 
 // Authentication State
 onAuthStateChanged(auth, async (user) => {
@@ -68,27 +87,20 @@ async function loadOrders(userId) {
   }
 }
 
-
-
-
-// Call the function with actual userId and orderId
-loadOrderDetails("user-id", "order-id");
-
 function displayNewOrder(orderId, orderData) {
   const orderDiv = document.createElement("div");
   orderDiv.classList.add("order-item");
 
   orderDiv.innerHTML = `
-    
     <div class="order-items">
       <p>Date:${new Date(orderData.date).toLocaleString()}</p>
       <p>Total:₹${orderData.total}</p>
       ${orderData.items.map((item) => 
         `<div class="order-item-details">
           <img src="${item.img || 'https://via.placeholder.com/50'}" alt="${item.name}" style="width: 50px; height: 50px; object-fit: cover;">
-            <p><strong>${item.name}</strong></p>
-            <p>Quantity: ${item.quantity}</p>
-            <p>Price: ₹${item.price}</p>
+          <p><strong>${item.name}</strong></p>
+          <p>Quantity: ${item.quantity}</p>
+          <p>Price: ₹${item.price}</p>
         </div>`).join("")}
     </div>
   `;
@@ -101,15 +113,5 @@ window.addEventListener("message", (event) => {
   if (event.data && event.data.type === "new-order") {
     const { orderId, orderData } = event.data;
     displayNewOrder(orderId, orderData);
-  }
-});
-
-// Logout
-logoutButton.addEventListener("click", async () => {
-  try {
-    await signOut(auth);
-    window.location.href = "../../../Assets/pages/html/login.html";
-  } catch (error) {
-    console.error("Error signing out:", error);
   }
 });
