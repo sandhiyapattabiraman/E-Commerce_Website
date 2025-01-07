@@ -70,47 +70,39 @@
             <div id="categories" class="pro_container"></div>
 
         </section>
+
         <section>
-        
-            <!-- Items -->
-            <h1>BestSellers</h1>
-            <div id="items" class="product-container"></div>
-
-        </section>
-
-        <!-- contact -->
-         
-        <section class="contact-section" id="contact">
-            <div class="location-box">
-                    <h2>Location</h2>
-                    <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.8354345086167!2d144.9537363153162!3d-37.81627997975154!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0x5045675218ce7e0!2sMelbourne%20VIC%2C%20Australia!5e0!3m2!1sen!2sin!4v1638167611189!5m2!1sen!2sin" 
-                        width="100%" 
-                        height="300" 
-                        style="border:0;" 
-                        allowfullscreen="" 
-                        loading="lazy">
-                    </iframe>
-                
-            </div>
-
-            <div class="contact-info">
+            <h1>Contact</h1>
+            <!-- Contact Section -->
+            <div class="contact-section">
+              <div class="contact-info">
                 <h2>Contact Us</h2>
                 <div class="info-item">
-                    <img src="./Assets/Images/email-icon.webp" alt="Email Icon" class="info-icon">
-                    <p>example@mail.com</p>
+                  <img src="./Assets/Images/email-icon.webp" alt="Email Icon" class="info-icon">
+                  <p>example@mail.com</p>
                 </div>
                 <div class="info-item">
-                    <img src="./Assets/Images/Phone_icon.png" alt="Phone Icon" class="info-icon">
-                    <p>+123 456 7890</p>
+                  <img src="./Assets/Images/Phone_icon.png" alt="Phone Icon" class="info-icon">
+                  <p>+123 456 7890</p>
                 </div>
-                <div class="info-item">
-                    <img src="./Assets/Images/clock_img.png" alt="Clock Icon" class="info-icon">
-                    <p>Mon - Fri: 9 AM - 6 PM</p>
-                </div>
+              </div>
+              <div class="contact-form-container">
+                <form id="contact-form">
+                  <label for="name">Name</label>
+                  <input type="text" id="name" name="name" required>
+                
+                  <label for="email">Email</label>
+                  <input type="email" id="email" name="email" required>
+                
+                  <label for="message">Message</label>
+                  <textarea id="message" name="message" rows="5" required></textarea>
+                
+                  <button type="submit">Send Message</button>
+                </form>
+              </div>
             </div>
-
-        </section>
+          </section>
+          
         
     </main>
     <script type="module" src="./script.js"></script>

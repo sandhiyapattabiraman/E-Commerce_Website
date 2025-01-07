@@ -164,6 +164,23 @@ function updateCartCount() {
   }
 }
 
+document.getElementById('contact-form').addEventListener('submit', function(event) {
+  event.preventDefault(); // Prevent form from submitting normally
+
+  const name = document.getElementById('name').value;
+  const email = document.getElementById('email').value;
+  const message = document.getElementById('message').value;
+
+  console.log('Form submitted with:', {
+    name,
+    email,
+    message
+  });
+
+ 
+  alert('Thank you for your message!');
+});
+
 // Listen for authentication state changes
 onAuthStateChanged(auth, (user) => {
   currentUser = user;
