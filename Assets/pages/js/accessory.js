@@ -147,18 +147,7 @@ window.addToCart = function addToCart(name, price, img, buttonElement) {
   const userEmail = `cart_${currentUser.email.replace('.', '_')}`;
   let cart = JSON.parse(localStorage.getItem(userEmail)) || [];
 
-  const existingItem = cart.find((item) => item.name === name);
-  if (existingItem) {
-    if (existingItem.quantity < 10) {
-      existingItem.quantity += 1;
-      showMessage("Increased quantity in your cart!", "success");
-    } else {
-      showMessage("Maximum quantity reached.", "error");
-    }
-  } else {
-    cart.push({ name, price, img, quantity: 1 });
-    showMessage("Product added to cart!", "success");
-  }
+  
 
   localStorage.setItem(userEmail, JSON.stringify(cart));
   updateCartCount();
