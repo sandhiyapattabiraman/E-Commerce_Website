@@ -63,12 +63,18 @@ function displayProducts(products) {
   let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
 
   products.forEach((product) => {
+
     const productDiv = document.createElement("div");
     productDiv.classList.add("product");
     productDiv.innerHTML = `
       <span class="wishlist-heart">${isInWishlist(product.name, wishlist) ? '❤️' : '♡'}</span>
       <img src="${product.image1}" alt="${product.name}" class="product-image">
-      <p>${product.name}</p>
+      <p>${product.name} 
+        <span class="more-dots" onclick="toggleDescription('${product.name}')">...</span>
+      </p>
+      <div class="product-description" id="desc-${product.name}" style="display: none;">
+        ${product.description || 'No description available.'}
+      </div>
       <img src="../../../Assets/images/star_rating_img.webp" alt="Rating" class="star_rating">
       <p>Price: ${product.price}</p>
       <button type="button" class="Button" onclick="addToCart('${product.name}', '${product.price}', '${product.image1}', this)">
@@ -85,6 +91,22 @@ function displayProducts(products) {
   });
 
   restoreCartButtons();
+}
+
+// Function to toggle the visibility of the product description
+window.toggleDescription = function(productName) {
+  const description = document.getElementById(`desc-${productName}`);
+  const productDiv = description.closest('.product'); // Find the closest product container
+
+  if (description.style.display === "none" || description.style.display === "") {
+    description.style.display = "block"; // Show description
+    description.style.maxHeight = description.scrollHeight + "px"; // Adjust max height
+    productDiv.classList.add('show-description'); // Expand product container
+  } else {
+    description.style.display = "none"; // Hide description
+    description.style.maxHeight = "0"; // Reset max height
+    productDiv.classList.remove('show-description'); // Collapse product container
+  }
 }
 
 // Helper function to check if the product is in the wishlist
@@ -153,6 +175,7 @@ window.addToCart = function addToCart(name, price, img, buttonElement) {
   updateCartCount();
 
   if (buttonElement) {
+    showMessage("Product added to cart","success")
     buttonElement.textContent = "Go to Cart";
     buttonElement.onclick = () => {
       window.location.href = "../../../Assets/pages/html/cart.html";

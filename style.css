@@ -322,13 +322,7 @@ body{
     transition: color 0.3s ease;
   }
   
-  .wishlist-heart.filled {
-    color: red;
-  }
-  
-  .wishlist-heart.empty {
-    color: white;
-  }
+
   
 
   h1{
@@ -338,6 +332,7 @@ body{
     margin: 5%;
 }
 
+/* Product Container */
 .product-container {
   display: flex;
   flex-wrap: wrap;
@@ -351,18 +346,25 @@ body{
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 460px;
-  width: 260px;
+  height: 460px; /* Default height */
+  width: 260px; /* Default width */
   gap: 10px; 
   background-color: white;
   border-radius: 10px;
-  transition: transform 0.2s ease;  
+  transition: transform 0.2s ease, height 0.3s ease, width 0.3s ease; /* Add height and width transition */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   padding: 10px;
 }
 
 .product:hover {
   transform: scale(1.05);
+}
+
+/* Adjusted Product Card when description is shown */
+.product.show-description {
+  height: auto; /* Adjusted height */
+  width: 300px;
+  transition: height 0.3s ease, width 0.3s ease; /* Smooth transition */
 }
 
 /* Wishlist Icon */
@@ -410,6 +412,36 @@ body{
   background-color: #45A049;
 }
 
+/* Style for more dots */
+.more-dots {
+  cursor: pointer;
+  color: #007bff;
+  font-size: 20px;
+  padding-left: 8px;
+}
+
+/* Style for the product description */
+.product-description {
+  font-size: 16px;
+  color: #555;
+  display: none; /* Initially hidden */
+  margin-top: 8px;
+  text-align: left;
+  padding: 8px;
+  background-color: #f9f9f9;
+  border-top: 1px solid #ddd;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+/* When product description is visible */
+.product.show-description .product-description {
+  display: block;
+  max-height: 200px; /* Adjust to fit content */
+}
+
+
 /* Message container styling */
 .message-container {
   position: fixed;
@@ -421,8 +453,9 @@ body{
   padding: 10px;
   border-radius: 5px;
   display: none;
-  z-index: 1000; /* Ensure the message is above other content */
+  z-index: 10; /* Ensure the message is above other content */
 }
+
 
 /* Success message styling */
 .message-container.success {
@@ -520,53 +553,7 @@ form button:hover {
 }
 
 
-#best-seller-section {
-  padding: 20px;
-  background-color: #f9f9f9;
-}
 
-#best-seller-container {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-.best-seller-item {
-  border: 1px solid #ddd;
-  padding: 10px;
-  width: 200px;
-  text-align: center;
-}
-
-.best-seller-item img {
-  width: 100%;
-  height: auto;
-}
-
-.best-seller-item h3 {
-  font-size: 18px;
-  margin: 10px 0;
-}
-
-.best-seller-item p {
-  color: #888;
-  margin: 5px 0;
-}
-
-.best-seller-item .price {
-  font-size: 16px;
-  color: #333;
-}
-
-.best-seller-item .buy-button {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 8px 16px;
-  background-color: #28a745;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 4px;
-}
 
 
 
@@ -575,4 +562,14 @@ form button:hover {
 
 .container{
   height: 150px;
+}
+
+.more-dots {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.product-description {
+  margin-top: 5px;
+  color: #666;
 }

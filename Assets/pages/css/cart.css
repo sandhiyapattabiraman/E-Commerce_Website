@@ -133,7 +133,7 @@ margin-top: 20px;
   margin-bottom: 20px;
 }
 
-.place-order-btn {
+#place-order-button {
   background-color: pink;
   color: rgb(8, 8, 8);
   border: none;
@@ -144,7 +144,7 @@ margin-top: 20px;
   transition: background-color 0.3s;
 }
 
-.place-order-btn:hover {
+#place-order-button:hover {
   background-color: rgb(243, 119, 139);
 }
 
@@ -169,7 +169,8 @@ margin-top: 20px;
 
 /* Error message styling */
 .message-container.error {
-  background-color: red;
+  background-color: rgb(232, 59, 59);
+  color: white;
 }
 
 
