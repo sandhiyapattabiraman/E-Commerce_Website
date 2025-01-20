@@ -169,19 +169,36 @@ window.addToCart = function addToCart(name, price, img, buttonElement) {
   const userEmail = `cart_${currentUser.email.replace('.', '_')}`;
   let cart = JSON.parse(localStorage.getItem(userEmail)) || [];
 
-  
+  // Create a product object
+  const newProduct = { name, price, img, quantity: 1 };
 
+  // Check if the product already exists in the cart
+  const existingProduct = cart.find(item => item.name === name);
+  if (existingProduct) {
+    // If the product exists, you might want to update the quantity instead
+    existingProduct.quantity += 1;
+  } else {
+    // If it doesn't exist, add the new product to the cart
+    cart.push(newProduct);
+  }
+
+  // Save the updated cart back to localStorage
   localStorage.setItem(userEmail, JSON.stringify(cart));
+
+  // Update the cart count
   updateCartCount();
 
+  // Provide feedback and update the button
   if (buttonElement) {
-    showMessage("Product added to cart","success")
+    showMessage("Product added to cart", "success");
     buttonElement.textContent = "Go to Cart";
     buttonElement.onclick = () => {
       window.location.href = "../../../Assets/pages/html/cart.html";
     };
   }
+ 
 };
+
 
 // Restore cart buttons based on saved cart
 function restoreCartButtons() {

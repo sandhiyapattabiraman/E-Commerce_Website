@@ -158,6 +158,7 @@ window.buyNow = function buyNow(name, price, img) {
 
 
 
+// Add to cart function
 window.addToCart = function addToCart(name, price, img, buttonElement) {
   if (!currentUser) {
     showMessage("You need to log in to add items to the cart.", "error");
@@ -168,22 +169,35 @@ window.addToCart = function addToCart(name, price, img, buttonElement) {
   const userEmail = `cart_${currentUser.email.replace('.', '_')}`;
   let cart = JSON.parse(localStorage.getItem(userEmail)) || [];
 
-  // Add product to cart array
-  const product = { name, price, img, quantity: 1 }; // Assuming each item has quantity 1
-  cart.push(product);
+  // Create a product object
+  const newProduct = { name, price, img, quantity: 1 };
 
-  // Save updated cart to localStorage
+  // Check if the product already exists in the cart
+  const existingProduct = cart.find(item => item.name === name);
+  if (existingProduct) {
+    // If the product exists, you might want to update the quantity instead
+    existingProduct.quantity += 1;
+  } else {
+    // If it doesn't exist, add the new product to the cart
+    cart.push(newProduct);
+  }
+
+  // Save the updated cart back to localStorage
   localStorage.setItem(userEmail, JSON.stringify(cart));
+
+  // Update the cart count
   updateCartCount();
 
+  // Provide feedback and update the button
   if (buttonElement) {
-    showMessage("Product added to cart","success")
+    showMessage("Product added to cart", "success");
     buttonElement.textContent = "Go to Cart";
     buttonElement.onclick = () => {
       window.location.href = "../../../Assets/pages/html/cart.html";
     };
   }
 };
+
 
 
 // Restore cart buttons based on saved cart
