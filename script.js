@@ -171,6 +171,13 @@ document.getElementById('contact-form').addEventListener('submit', function(even
   const email = document.getElementById('email').value;
   const message = document.getElementById('message').value;
 
+  const nameRegex = /^[A-Za-z]+$/;
+
+  if (!nameRegex.test(name)) {
+    alert('Name must contain only letters.');
+    return; // Stop form submission
+  }
+
   console.log('Form submitted with:', {
     name,
     email,
@@ -179,6 +186,8 @@ document.getElementById('contact-form').addEventListener('submit', function(even
 
  
   alert('Thank you for your message!');
+
+  document.getElementById('contact-form').reset();
 });
 
 // Listen for authentication state changes
