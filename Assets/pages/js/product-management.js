@@ -50,8 +50,9 @@ document.getElementById("addProductForm").addEventListener("submit", async (e) =
   const price = document.getElementById("productPrice").value.trim();
   const image1 = document.getElementById("productImage").value.trim();
   const category = document.getElementById("productCategory").value.trim();
+  const description = document.getElementById("description").value.trim();
 
-  if (!name || !price || !image1 || !category) {
+  if (!name || !price || !image1 || !category||!description) {
     alert("All fields are required.");
     return;
   }
@@ -75,6 +76,7 @@ document.getElementById("addProductForm").addEventListener("submit", async (e) =
         name,
         price: parseFloat(price),
         image1,
+        description,
         userId: currentUser.uid, // Track which user added the product
         timestamp: new Date().toISOString(),
       };
