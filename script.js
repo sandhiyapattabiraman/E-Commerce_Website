@@ -171,12 +171,22 @@ document.getElementById('contact-form').addEventListener('submit', function(even
   const email = document.getElementById('email').value;
   const message = document.getElementById('message').value;
 
-  const nameRegex = /^[A-Za-z]+$/;
+  // Regex to match names with only letters and one space between first and last name
+  const nameRegex = /^[A-Za-z]+( [A-Za-z]+)?$/;
 
+  // Validate the name
   if (!nameRegex.test(name)) {
-    alert('Name must contain only letters.');
+    alert('Name must contain only letters and a single space between first and last name (if applicable).');
     return; // Stop form submission
   }
+
+  // Validate the length of the name
+  if (name.length < 3) {
+    alert('Name must be at least 3 characters long.');
+    return; // Stop form submission
+  }
+
+  // Here you can add further validation for email and message if needed
 
   console.log('Form submitted with:', {
     name,
@@ -184,11 +194,12 @@ document.getElementById('contact-form').addEventListener('submit', function(even
     message
   });
 
- 
   alert('Thank you for your message!');
 
+  // Reset the form after submission
   document.getElementById('contact-form').reset();
 });
+
 
 // Listen for authentication state changes
 onAuthStateChanged(auth, (user) => {
