@@ -1,7 +1,7 @@
 {
     "categories": [
       {
-        "image": "./Assets/Images/food&treats_img.webp",
+        "image": "Assets/Images/food&treats_img.webp",
         "name": "Food & Treats",
         "link":"./Assets/pages/html/food_treats.html"
       },
