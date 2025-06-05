@@ -94,63 +94,6 @@ const auth = getAuth();
 
 let currentUser = null; // Variable to track the current user
 
-// Fetch product data from JSON and display it
-fetch('./Assets/pages/json/products.json')
-  .then((response) => response.json())
-  .then((jsonData) => {
-    const productList = document.getElementById("items");
-
-    jsonData.products.forEach(product => {
-      const productDiv = document.createElement("div");
-      productDiv.classList.add("product");
-      productDiv.innerHTML = `
-        <img src="${product.image}" alt="wishlist_img" class="wishlist-img">
-        <img src="${product.image1}" alt="product image" class="product-image">
-        <p>${product.name}</p>
-        <img src="${product.image2}" alt="rating" class="star_rating">
-        <p>Price: ${product.price}</p>
-        <button type="button" class="Button"
-        onclick="addToCart( '${product.name}','${product.price}', '${product.image1}')">
-        Add to Cart
-        </button>
-        <button type="button" class="Buttons">Buy Now</button>
-      `;
-      productList.appendChild(productDiv);
-    });
-  });
-
-// Add to cart function
-window.addToCart = function addToCart(name, price, img) {
-  // Check if the user is logged in
-  if (!currentUser) {
-    alert("You need to log in to add items to the cart.");
-    window.location.href = "./Assets/pages/html/login.html";
-    return; // Stop further execution
-  }
-
-  // Retrieve the user's cart from localStorage
-  const userEmail = `cart_${currentUser.email.replace('.', '_')}`;
-  let cart = JSON.parse(localStorage.getItem(userEmail)) || [];
-
-  // Check if the product already exists in the cart
-  const existingItem = cart.find((item) => item.name === name);
-  if (existingItem) {
-    if (existingItem.quantity < 10) {
-      existingItem.quantity += 1;
-      alert('Increased quantity in your cart!');
-    } else {
-      alert('Maximum quantity reached.');
-    }
-  } else {
-    // Add new product to the cart
-    cart.push({ name, price, img, quantity: 1 });
-    alert('Product added to cart!');
-  }
-
-  // Save the updated cart back to localStorage
-  localStorage.setItem(userEmail, JSON.stringify(cart));
-  updateCartCount(); // Update cart count in the header
-};
 
 // Update cart count dynamically
 function updateCartCount() {
@@ -164,41 +107,6 @@ function updateCartCount() {
   }
 }
 
-document.getElementById('contact-form').addEventListener('submit', function(event) {
-  event.preventDefault(); // Prevent form from submitting normally
-
-  const name = document.getElementById('name').value;
-  const email = document.getElementById('email').value;
-  const message = document.getElementById('message').value;
-
-  // Regex to match names with only letters and one space between first and last name
-  const nameRegex = /^[A-Za-z]+( [A-Za-z]+)?$/;
-
-  // Validate the name
-  if (!nameRegex.test(name)) {
-    alert('Name must contain only letters and a single space between first and last name (if applicable).');
-    return; // Stop form submission
-  }
-
-  // Validate the length of the name
-  if (name.length < 3) {
-    alert('Name must be at least 3 characters long.');
-    return; // Stop form submission
-  }
-
-  // Here you can add further validation for email and message if needed
-
-  console.log('Form submitted with:', {
-    name,
-    email,
-    message
-  });
-
-  alert('Thank you for your message!');
-
-  // Reset the form after submission
-  document.getElementById('contact-form').reset();
-});
 
 
 // Listen for authentication state changes

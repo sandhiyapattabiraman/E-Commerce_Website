@@ -35,8 +35,6 @@ onAuthStateChanged(auth, (user) => {
   updateCartCount();
 });
 
-
-
 // Function to fetch products for a specific category
 async function fetchProducts(categoryName) {
   try {
@@ -63,13 +61,14 @@ function displayProducts(products) {
   let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
 
   products.forEach((product) => {
-
     const productDiv = document.createElement("div");
     productDiv.classList.add("product");
+    productDiv.dataset.name = product.name;  // <-- Store product name here
+
     productDiv.innerHTML = `
       <span class="wishlist-heart">${isInWishlist(product.name, wishlist) ? '❤️' : '♡'}</span>
       <img src="${product.image1}" alt="${product.name}" class="product-image">
-      <p>${product.name} 
+      <p class="product-name">${product.name} 
         <span class="more-dots" onclick="toggleDescription('${product.name}')">...</span>
       </p>
       <div class="product-description" id="desc-${product.name}" style="display: none;">
@@ -139,11 +138,6 @@ window.addToWishlist = function addToWishlist(element, name, price, image) {
   showMessage(`Item ${existingItem ? 'removed from' : 'added to'} wishlist!`, 'success');
 };
 
-
-
-
-
-
 window.buyNow = function buyNow(name, price, img) {
   if (!currentUser) {
     showMessage("You need to log in to proceed with the purchase.", "error");
@@ -155,8 +149,6 @@ window.buyNow = function buyNow(name, price, img) {
   localStorage.setItem("buyNowProduct", JSON.stringify(productDetails));
   window.location.href = "../../../Assets/pages/html/buynow.html";
 };
-
-
 
 // Add to cart function
 window.addToCart = function addToCart(name, price, img, buttonElement) {
@@ -175,7 +167,7 @@ window.addToCart = function addToCart(name, price, img, buttonElement) {
   // Check if the product already exists in the cart
   const existingProduct = cart.find(item => item.name === name);
   if (existingProduct) {
-    // If the product exists, you might want to update the quantity instead
+    // If the product exists, update the quantity
     existingProduct.quantity += 1;
   } else {
     // If it doesn't exist, add the new product to the cart
@@ -198,14 +190,13 @@ window.addToCart = function addToCart(name, price, img, buttonElement) {
   }
 };
 
-
 // Restore cart buttons based on saved cart
 function restoreCartButtons() {
   const userEmail = currentUser ? `cart_${currentUser.email.replace('.', '_')}` : "cart_guest";
   const cart = JSON.parse(localStorage.getItem(userEmail)) || [];
 
   document.querySelectorAll(".product").forEach((productDiv) => {
-    const productName = productDiv.querySelector("p").textContent.trim();
+    const productName = productDiv.dataset.name;  // Use data attribute here
     const addToCartButton = productDiv.querySelector(".Button");
 
     if (cart.some((item) => item.name === productName)) {
@@ -234,13 +225,13 @@ function showMessage(message, type) {
   const messageContainer = document.getElementById("message-container");
   if (messageContainer) {
     messageContainer.textContent = message;
-    
+
     // Remove any existing success or error classes
     messageContainer.classList.remove("success", "error");
-    
+
     // Add the appropriate class for the type
     messageContainer.classList.add(type);
-    
+
     // Show the message container
     messageContainer.style.display = "block";
 
@@ -250,9 +241,6 @@ function showMessage(message, type) {
     }, 3000);
   }
 }
-
-
-
 
 // Fetch products when the page loads
 document.addEventListener("DOMContentLoaded", () => {
