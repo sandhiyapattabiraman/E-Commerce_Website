@@ -1,39 +1,39 @@
 {
     "categories": [
       {
-        "image": "../../../Assets/Images/food&treats_img.webp",
+        "image": "./Assets/Images/food&treats_img.webp",
         "name": "Food & Treats",
-        "link":"../../../Assets/pages/html/food_treats.html"
+        "link":"./Assets/pages/html/food_treats.html"
       },
       {
-        "image": "../../../Assets/Images/toys&entertainment_img.jpg",
+        "image": "./Assets/Images/toys&entertainment_img.jpg",
         "name": "Toys & Entertainment",
-        "link":"../../../Assets/pages/html/toys.html"
+        "link":"./Assets/pages/html/toys.html"
       },
       {
-        "image": "../../../Assets/Images/pet_accessory_img.webp",
+        "image": "./Assets/Images/pet_accessory_img.webp",
         "name": "Accessories",
-        "link":"../../../Assets/pages/html/accessory.html"
+        "link":"./Assets/pages/html/accessory.html"
       },
       {
-        "image": "../../../Assets/Images/pet_house_img.webp",
+        "image": "./Assets/Images/pet_house_img.webp",
         "name": "Pet Houses",
-        "link":"../../../Assets/pages/html/pet_house.html"
+        "link":"./Assets/pages/html/pet_house.html"
       },
       {
-        "image": "../../../Assets/Images/pet_clean_img.webp",
+        "image": "./Assets/Images/pet_clean_img.webp",
         "name": "Cleaning & Maintenance",
-        "link":"../../../Assets/pages/html/cleaning.html"
+        "link":"./Assets/pages/html/cleaning.html"
       },
       {
-        "image": "../../../Assets/Images/pet_bed_img.avif",
+        "image": "./Assets/Images/pet_bed_img.avif",
         "name": "Beds & Comfort",
-        "link":"../../../Assets/pages/html/beds.html"
+        "link":"./Assets/pages/html/beds.html"
       },
       {
-        "image": "../../../Assets/Images/pet_carrier_img.jpg",
+        "image": "./Assets/Images/pet_carrier_img.jpg",
         "name": "Travel & Carriers",
-        "link":"../../../Assets/pages/html/carriers.html"
+        "link":"./Assets/pages/html/carriers.html"
       }
     ]
   }
