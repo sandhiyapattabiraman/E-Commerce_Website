@@ -74,7 +74,6 @@ function displayProducts(products) {
       <div class="product-description" id="desc-${product.name}" style="display: none;">
         ${product.description || 'No description available.'}
       </div>
-      <img src="../../../Assets/images/star_rating_img.webp" alt="Rating" class="star_rating">
       <p>Price: ${product.price}</p>
       <button type="button" class="Button" onclick="addToCart('${product.name}', '${product.price}', '${product.image1}', this)">
         Add to Cart
